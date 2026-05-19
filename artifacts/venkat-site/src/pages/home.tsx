@@ -795,9 +795,11 @@ export default function Home() {
               Venkat is an independent HighLevel Affiliate, not an employee. He receives referral payments from HighLevel. The opinions expressed here are his own and are not official statements of HighLevel or its parent company, LLC.
             </p>
 
-            <div className="text-center" style={{ borderTop: '1px solid #374151', paddingTop: '1rem' }}>
-              <p className="text-xs" style={{ color: '#6b7280' }}>
-                © {new Date().getFullYear()} Venkat. All Rights Reserved.
+            <div style={{ borderTop: '1px solid #374151', paddingTop: '1rem' }}>
+              <p className="text-xs flex items-center gap-3" style={{ color: '#6b7280' }}>
+                <span>© {new Date().getFullYear()} Venkat. All Rights Reserved.</span>
+                <span style={{ color: '#4b5563' }}>|</span>
+                <a href="#" className="hover:underline" style={{ color: '#9ca3af' }}>Terms &amp; Conditions</a>
               </p>
             </div>
 
