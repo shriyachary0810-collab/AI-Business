@@ -173,9 +173,14 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <Button variant="default" className="font-semibold bg-primary text-primary-foreground hover:bg-primary/90" data-testid="button-get-blueprint">
-            Get The Blueprint
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" className="font-semibold border-border hover:border-primary hover:text-primary transition-colors hidden sm:inline-flex" data-testid="button-get-blueprint">
+              Get The Blueprint
+            </Button>
+            <Button variant="default" className="font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm" data-testid="button-get-started">
+              Get Started
+            </Button>
+          </div>
         </div>
       </nav>
 

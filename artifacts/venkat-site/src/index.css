@@ -51,36 +51,36 @@
 }
 
 :root {
-  /* Defaulting to the dark, high-energy palette for this brand */
-  --background: 240 10% 4%;
-  --foreground: 0 0% 98%;
-  --border: 240 10% 15%;
-  --card: 240 10% 6%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 240 10% 12%;
-  
-  --popover: 240 10% 6%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 240 10% 12%;
-  
-  --primary: 160 100% 45%; /* High visibility Neon Mint */
-  --primary-foreground: 240 10% 4%;
-  
-  --secondary: 260 100% 65%; /* Vibrant Purple */
+  /* Light / white theme */
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --border: 220 13% 88%;
+  --card: 0 0% 98%;
+  --card-foreground: 222 47% 11%;
+  --card-border: 220 13% 91%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --popover-border: 220 13% 88%;
+
+  --primary: 160 84% 39%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 260 80% 58%;
   --secondary-foreground: 0 0% 100%;
-  
-  --muted: 240 10% 12%;
-  --muted-foreground: 240 5% 65%;
-  
-  --accent: 280 100% 60%;
+
+  --muted: 220 14% 95%;
+  --muted-foreground: 220 9% 46%;
+
+  --accent: 280 80% 55%;
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-  
-  --input: 240 10% 15%;
-  --ring: 160 100% 45%;
-  
+
+  --input: 220 13% 88%;
+  --ring: 160 84% 39%;
+
   --app-font-sans: 'Outfit', sans-serif;
   --app-font-display: 'Space Grotesk', sans-serif;
   --radius: 0.75rem;
@@ -94,49 +94,48 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 
-  --chart-1: 160 100% 45%;
-  --chart-2: 260 100% 65%;
-  --chart-3: 30 100% 60%;
-  --chart-4: 280 100% 60%;
-  --chart-5: 340 100% 60%;
+  --chart-1: 160 84% 39%;
+  --chart-2: 260 80% 58%;
+  --chart-3: 30 100% 55%;
+  --chart-4: 280 80% 55%;
+  --chart-5: 340 80% 55%;
 
-  --opaque-button-border-intensity: 0;
-  --button-outline: rgba(255, 255, 255, 0.1);
-  --badge-outline: rgba(255, 255, 255, 0.1);
-  --elevate-1: rgba(255, 255, 255, 0.05);
-  --elevate-2: rgba(255, 255, 255, 0.1);
+  --opaque-button-border-intensity: -8;
+  --button-outline: rgba(0, 0, 0, 0.08);
+  --badge-outline: rgba(0, 0, 0, 0.05);
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.07);
 }
 
 .dark {
-  /* Redundant for now, but keeping in case of explicit toggle */
-  --background: 240 10% 4%;
+  --background: 222 47% 8%;
   --foreground: 0 0% 98%;
-  --border: 240 10% 15%;
-  --card: 240 10% 6%;
+  --border: 222 20% 18%;
+  --card: 222 47% 10%;
   --card-foreground: 0 0% 98%;
-  --card-border: 240 10% 12%;
-  
-  --popover: 240 10% 6%;
+  --card-border: 222 20% 16%;
+
+  --popover: 222 47% 10%;
   --popover-foreground: 0 0% 98%;
-  --popover-border: 240 10% 12%;
-  
-  --primary: 160 100% 45%;
-  --primary-foreground: 240 10% 4%;
-  
-  --secondary: 260 100% 65%;
+  --popover-border: 222 20% 16%;
+
+  --primary: 160 84% 39%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 260 80% 58%;
   --secondary-foreground: 0 0% 100%;
-  
-  --muted: 240 10% 12%;
-  --muted-foreground: 240 5% 65%;
-  
-  --accent: 280 100% 60%;
+
+  --muted: 222 20% 15%;
+  --muted-foreground: 220 9% 60%;
+
+  --accent: 280 80% 55%;
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-  
-  --input: 240 10% 15%;
-  --ring: 160 100% 45%;
+
+  --input: 222 20% 18%;
+  --ring: 160 84% 39%;
 }
 
 @layer base {
