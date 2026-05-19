@@ -249,25 +249,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats / Social Proof */}
-      <section className="py-12 border-y border-border/50 bg-muted/20">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Who Is This For */}
+      <section className="py-16 border-y border-border/50 bg-muted/20">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-black font-display mb-2">Who Is This For?</h2>
+            <p className="text-muted-foreground">This is for you if any of these sound familiar…</p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { label: "Inc 5000 Award", value: "3x Winner", icon: Award },
-              { label: "Agency Revenue", value: "7-Figure", icon: TrendingUp },
-              { label: "Active Clients", value: "300+", icon: Users },
-              { label: "GoHighLevel", value: "Gold SaaS", icon: Zap },
-            ].map((stat, i) => (
+              { title: "You want to start a business", desc: "But don't know where to begin or what to sell." },
+              { title: "You're tired of trading time for money", desc: "You want recurring revenue that works while you sleep." },
+              { title: "You have no tech skills", desc: "No coding, no design, no prior experience needed — just a willingness to learn." },
+              { title: "You've tried other courses before", desc: "And got nothing but theory. You need a real system that's already working." },
+              { title: "You want to help small businesses", desc: "Grow their revenue using digital marketing and AI tools." },
+              { title: "You're ready to take action", desc: "You don't need more motivation — you need the right blueprint and tools." },
+            ].map((item, i) => (
               <motion.div
-                key={stat.label}
+                key={item.title}
                 {...stagger(i)}
-                className="flex flex-col items-center justify-center text-center space-y-2 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
-                data-testid={`stat-card-${stat.label.replace(/\s/g, "-").toLowerCase()}`}
+                className="flex items-start gap-3 bg-card border border-border/50 rounded-2xl p-5 hover:border-primary/30 transition-colors"
+                data-testid={`who-card-${i}`}
               >
-                <stat.icon className="w-8 h-8 text-primary mb-2" />
-                <div className="text-3xl font-black font-display text-foreground">{stat.value}</div>
-                <div className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{stat.label}</div>
+                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-bold text-foreground text-sm mb-1">{item.title}</div>
+                  <div className="text-xs text-muted-foreground leading-relaxed">{item.desc}</div>
+                </div>
               </motion.div>
             ))}
           </div>
