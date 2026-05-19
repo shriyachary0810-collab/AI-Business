@@ -632,12 +632,15 @@ export default function Home() {
         <div className="container mx-auto max-w-5xl">
 
           <motion.div {...fadeUp} className="text-center mb-14">
+            <h2 className="text-4xl md:text-6xl font-black font-display text-[#0a0a0a] mb-4">
+              Here's The Free <span className="text-primary">Course</span>
+            </h2>
             <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
               Free Training
             </div>
-            <h2 className="text-4xl md:text-5xl font-black font-display text-[#0a0a0a] mb-4">
+            <h3 className="text-2xl md:text-3xl font-black font-display text-[#0a0a0a] mb-4">
               The <span className="text-primary">AI Agency Blueprint</span>
-            </h2>
+            </h3>
             <p className="text-xl text-gray-500 max-w-2xl mx-auto">
               The exact step-by-step system Venkat used to build a 7-figure agency — and how you get it 100% FREE when you start your HighLevel trial.
             </p>
