@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar } from "lucide-react";
+import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar, Briefcase, Clock, Laptop, GraduationCap, Store, Rocket } from "lucide-react";
 import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
 import { Linkedin } from "lucide-react";
 
@@ -226,23 +226,49 @@ export default function Home() {
             </h2>
             <p className="text-gray-500">This is for you if any of these sound familiar…</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { title: "You want to start a business", desc: "But don't know where to begin or what to sell." },
-              { title: "You're tired of trading time for money", desc: "You want recurring revenue that works while you sleep." },
-              { title: "You have no tech skills", desc: "No coding, no design, no prior experience needed — just a willingness to learn." },
-              { title: "You've tried other courses before", desc: "And got nothing but theory. You need a real system that's already working." },
-              { title: "You want to help small businesses", desc: "Grow their revenue using digital marketing and AI tools." },
-              { title: "You're ready to take action", desc: "You don't need more motivation — you need the right blueprint and tools." },
+              {
+                icon: Briefcase,
+                title: "You Want to Start a Business",
+                desc: "But don't know where to begin or what to sell.",
+              },
+              {
+                icon: Clock,
+                title: "You're Tired of Trading Time for Money",
+                desc: "You want recurring revenue that works while you sleep.",
+              },
+              {
+                icon: Laptop,
+                title: "You Have No Tech Skills",
+                desc: "No coding, no design, no prior experience needed — just a willingness to learn.",
+              },
+              {
+                icon: GraduationCap,
+                title: "You've Tried Other Courses Before",
+                desc: "And got nothing but theory. You need a real system that's already working.",
+              },
+              {
+                icon: Store,
+                title: "You Want to Help Small Businesses",
+                desc: "Grow their revenue using digital marketing and AI tools.",
+              },
+              {
+                icon: Rocket,
+                title: "You're Ready to Take Action",
+                desc: "You don't need more motivation — you need the right blueprint and tools.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
                 {...stagger(i)}
-                className="flex items-start gap-3 bg-white border border-gray-200 rounded-2xl p-5 hover:border-primary/40 hover:shadow-sm transition-all"
+                className="flex flex-col items-center text-center gap-4 bg-white border border-gray-200 rounded-2xl p-6 hover:border-primary/40 hover:shadow-md transition-all group"
               >
-                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary transition-all duration-300">
+                  <item.icon size={26} className="text-primary group-hover:text-white transition-colors duration-300" />
+                </div>
                 <div>
-                  <div className="font-bold text-[#0a0a0a] text-sm mb-1">{item.title}</div>
+                  <div className="font-black text-[#0a0a0a] text-sm mb-1.5">{item.title}</div>
                   <div className="text-xs text-gray-500 leading-relaxed">{item.desc}</div>
                 </div>
               </motion.div>
