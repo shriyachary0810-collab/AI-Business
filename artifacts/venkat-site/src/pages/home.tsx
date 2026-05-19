@@ -215,7 +215,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary w-fit text-sm font-bold">
               <Zap size={14} className="fill-primary" />
-              No Experience. No Code. No Tech Skills Required.
+              Launch Your Software or AI Agency in 30 Days
             </div>
 
             <h1 className="text-5xl md:text-6xl font-black font-display leading-[1.1] tracking-tight text-[#0a0a0a]">
