@@ -770,24 +770,32 @@ export default function Home() {
 
         {/* Disclaimer / Copyright block — black background */}
         <div style={{ backgroundColor: '#000000' }}>
-          <div className="container mx-auto px-6 py-12 max-w-4xl">
+          <div className="container mx-auto px-6 py-8 max-w-4xl">
 
-            <p className="text-xs leading-7 text-center mb-6" style={{ color: '#9ca3af' }}>
-              <span className="font-bold uppercase tracking-widest" style={{ color: '#ffffff' }}>Disclaimer: </span>
+            {/* Name heading */}
+            <p className="text-center font-black font-display mb-1" style={{ color: '#ffffff', fontSize: '1.1rem', letterSpacing: '0.05em' }}>
+              VENKAT
+            </p>
+            <p className="text-center mb-5" style={{ color: '#9ca3af', fontSize: '0.7rem', letterSpacing: '0.08em' }}>
+              VENKAT COPYRIGHT MEDIA GROUP 2026
+            </p>
+
+            <p className="text-xs leading-5 text-center mb-3" style={{ color: '#9ca3af' }}>
+              <span className="font-bold uppercase" style={{ color: '#ffffff' }}>Disclaimer: </span>
               This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc. This site is also not a part of the Google™ website or Alphabet Inc. GOOGLE™ is a trademark of ALPHABET Inc.
             </p>
 
-            <p className="text-xs leading-7 text-center mb-6" style={{ color: '#9ca3af' }}>
-              <span className="font-bold uppercase tracking-widest" style={{ color: '#ffffff' }}>Earnings Disclaimer: </span>
+            <p className="text-xs leading-5 text-center mb-3" style={{ color: '#9ca3af' }}>
+              <span className="font-bold uppercase" style={{ color: '#ffffff' }}>Earnings Disclaimer: </span>
               The results stated on this page are Venkat's personal results and the results of his students. Please understand these results are not typical. Venkat is an experienced internet marketer with years of practice. The average person who purchases any "how-to" information gets little to no results. Venkat is using these references for example purposes only. Your results will vary and depend on many factors including but not limited to your background, experience, and work ethic. All business entails risk as well as massive and consistent effort and action. If you're not willing to accept that, please do not sign up for this training.
             </p>
 
-            <p className="text-xs leading-7 text-center mb-10" style={{ color: '#9ca3af' }}>
-              <span className="font-bold uppercase tracking-widest" style={{ color: '#ffffff' }}>HighLevel Affiliate Disclosure: </span>
+            <p className="text-xs leading-5 text-center mb-5" style={{ color: '#9ca3af' }}>
+              <span className="font-bold uppercase" style={{ color: '#ffffff' }}>HighLevel Affiliate Disclosure: </span>
               Venkat is an independent HighLevel Affiliate, not an employee. He receives referral payments from HighLevel. The opinions expressed here are his own and are not official statements of HighLevel or its parent company, LLC.
             </p>
 
-            <div className="text-center" style={{ borderTop: '1px solid #374151', paddingTop: '1.5rem' }}>
+            <div className="text-center" style={{ borderTop: '1px solid #374151', paddingTop: '1rem' }}>
               <p className="text-xs" style={{ color: '#6b7280' }}>
                 © {new Date().getFullYear()} Venkat. All Rights Reserved.
               </p>
