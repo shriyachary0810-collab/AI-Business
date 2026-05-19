@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play, TrendingUp, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar } from "lucide-react";
-import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly } from "react-icons/si";
+import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
 import { Linkedin } from "lucide-react";
 
 const fadeUp = {
@@ -422,128 +422,123 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Multi-column comparison table */}
+          {/* Sean-style 4-column table: Feature | Replaces (logos) | Other Tools cost | HighLevel ✓ */}
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }}>
-            <div className="overflow-x-auto rounded-3xl border border-border shadow-sm" data-testid="software-comparison-table">
-              <table className="w-full min-w-[640px] text-sm">
-                {/* Header */}
+            <div className="overflow-x-auto rounded-3xl border border-border shadow-md" data-testid="software-comparison-table">
+              <table className="w-full min-w-[560px] text-sm border-collapse">
                 <thead>
-                  <tr className="border-b border-border bg-muted/40">
-                    <th className="text-left px-5 py-5 font-semibold text-muted-foreground w-[32%]">Feature</th>
-                    {/* HighLevel — highlighted */}
-                    <th className="px-4 py-4 text-center bg-primary/10 border-x border-primary/25 w-[17%]">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                  <tr className="bg-primary text-white">
+                    <th className="text-left px-5 py-4 font-bold uppercase tracking-wider text-xs w-[30%]">Features</th>
+                    <th className="px-4 py-4 text-center font-bold uppercase tracking-wider text-xs w-[30%]">Replaces</th>
+                    <th className="px-4 py-4 text-center font-bold uppercase tracking-wider text-xs w-[20%]">Other Tools</th>
+                    <th className="px-4 py-4 text-center w-[20%]">
+                      <div className="flex flex-col items-center gap-0.5">
+                        <div className="w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center mx-auto">
                           <Zap size={14} className="text-white" />
                         </div>
-                        <span className="font-black text-xs text-foreground font-display leading-tight">HighLevel</span>
-                        <span className="text-[10px] text-primary font-bold uppercase tracking-wide">Venkat Uses</span>
-                      </div>
-                    </th>
-                    {/* Competitors */}
-                    <th className="px-3 py-4 text-center w-[13%]">
-                      <div className="flex flex-col items-center gap-1">
-                        <SiHubspot size={24} color="#FF7A59" />
-                        <span className="text-xs font-semibold text-muted-foreground">HubSpot</span>
-                      </div>
-                    </th>
-                    <th className="px-3 py-4 text-center w-[13%]">
-                      <div className="flex flex-col items-center gap-1">
-                        <SiMailchimp size={24} color="#F2C94C" />
-                        <span className="text-xs font-semibold text-muted-foreground">Mailchimp</span>
-                      </div>
-                    </th>
-                    <th className="px-3 py-4 text-center w-[13%]">
-                      <div className="flex flex-col items-center gap-1">
-                        <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#E8593C" }}>CF</div>
-                        <span className="text-xs font-semibold text-muted-foreground">Clickfunnels</span>
-                      </div>
-                    </th>
-                    <th className="px-3 py-4 text-center w-[12%]">
-                      <div className="flex flex-col items-center gap-1">
-                        <SiSalesforce size={24} color="#00A1E0" />
-                        <span className="text-xs font-semibold text-muted-foreground">Salesforce</span>
+                        <span className="font-bold uppercase tracking-wider text-xs">HighLevel</span>
                       </div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { feature: "CRM & Pipeline",         ghl: true,  hs: true,  mc: false, cf: false, sf: true  },
-                    { feature: "Email Automation",        ghl: true,  hs: true,  mc: true,  cf: false, sf: true  },
-                    { feature: "SMS Marketing",           ghl: true,  hs: false, mc: false, cf: false, sf: false },
-                    { feature: "Funnel Builder",          ghl: true,  hs: false, mc: false, cf: true,  sf: false },
-                    { feature: "Appointment Booking",     ghl: true,  hs: true,  mc: false, cf: false, sf: false },
-                    { feature: "Website Builder",         ghl: true,  hs: true,  mc: true,  cf: true,  sf: false },
-                    { feature: "AI Chatbot",              ghl: true,  hs: false, mc: false, cf: false, sf: false },
-                    { feature: "Review Management",       ghl: true,  hs: false, mc: false, cf: false, sf: false },
-                    { feature: "White-Label & Resell",    ghl: true,  hs: false, mc: false, cf: false, sf: false },
-                    { feature: "Unlimited Sub-Accounts",  ghl: true,  hs: false, mc: false, cf: false, sf: false },
-                    { feature: "Courses & Memberships",   ghl: true,  hs: false, mc: false, cf: true,  sf: false },
-                    { feature: "Monthly Cost",            ghl: "$97", hs: "$800+", mc: "$299+", cf: "$127+", sf: "$1k+" },
-                  ].map((row, i) => {
-                    const isPrice = typeof row.ghl === "string";
-                    const check = (val: boolean | string) =>
-                      typeof val === "string"
-                        ? <span className={`font-black text-sm ${val === "$97" ? "text-primary" : "text-red-400"}`}>{val}</span>
-                        : val
-                        ? <CheckCircle2 size={17} className="text-primary mx-auto" />
-                        : <span className="text-muted-foreground/30 font-bold text-base">✕</span>;
-                    return (
-                      <tr
-                        key={row.feature}
-                        className={`border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors ${isPrice ? "bg-muted/30 border-t-2 border-border font-bold" : i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
-                        data-testid={`comparison-row-${i}`}
-                      >
-                        <td className={`px-5 py-3.5 text-sm ${isPrice ? "font-bold text-foreground" : "font-medium text-foreground"}`}>{row.feature}</td>
-                        <td className="px-4 py-3.5 text-center bg-primary/5 border-x border-primary/15">{check(row.ghl)}</td>
-                        <td className="px-3 py-3.5 text-center">{check(row.hs)}</td>
-                        <td className="px-3 py-3.5 text-center">{check(row.mc)}</td>
-                        <td className="px-3 py-3.5 text-center">{check(row.cf)}</td>
-                        <td className="px-3 py-3.5 text-center">{check(row.sf)}</td>
-                      </tr>
-                    );
-                  })}
+                    {
+                      feature: "CRM & Pipeline Management",
+                      logos: [<SiSalesforce key="sf" size={20} color="#00A1E0" />, <SiHubspot key="hs" size={20} color="#FF7A59" />],
+                      replaces: "Salesforce / HubSpot",
+                      cost: "$99 / Monthly",
+                    },
+                    {
+                      feature: "Unlimited Sales Funnels",
+                      logos: [<span key="cf" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#E8593C" }}>CF</span>],
+                      replaces: "ClickFunnels",
+                      cost: "$297 / Monthly",
+                    },
+                    {
+                      feature: "Website Builder",
+                      logos: [<SiWix key="wix" size={20} color="#0C6EFC" />, <SiWordpress key="wp" size={20} color="#21759B" />],
+                      replaces: "Wix / WordPress",
+                      cost: "$29 / Monthly",
+                    },
+                    {
+                      feature: "Surveys & Forms",
+                      logos: [<SiTypeform key="tf" size={20} color="#262627" />, <span key="jf" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#FF6100" }}>JF</span>],
+                      replaces: "Typeform / JotForm",
+                      cost: "$49 / Monthly",
+                    },
+                    {
+                      feature: "Email Marketing",
+                      logos: [<SiMailchimp key="mc" size={20} color="#F2C94C" />, <span key="ac" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#356AE6" }}>AC</span>],
+                      replaces: "Mailchimp / ActiveCampaign",
+                      cost: "$99 / Monthly",
+                    },
+                    {
+                      feature: "2-Way SMS Marketing",
+                      logos: [<SiTwilio key="tw" size={20} color="#F22F46" />, <span key="st" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#1A1A2E" }}>ST</span>],
+                      replaces: "Twilio / SlickText",
+                      cost: "$99 / Monthly",
+                    },
+                    {
+                      feature: "Booking & Appointments",
+                      logos: [<SiCalendly key="cal" size={20} color="#006BFF" />],
+                      replaces: "Calendly",
+                      cost: "$29 / Monthly",
+                    },
+                    {
+                      feature: "Workflow Automations",
+                      logos: [<SiZapier key="zap" size={20} color="#FF4A00" />, <span key="mk" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#9B59B6" }}>MK</span>],
+                      replaces: "Zapier / Make",
+                      cost: "$169 / Monthly",
+                    },
+                    {
+                      feature: "Courses / Products",
+                      logos: [<span key="kj" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#7B5CF0" }}>K</span>, <span key="tc" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#35A0DE" }}>TC</span>],
+                      replaces: "Kajabi / Teachable",
+                      cost: "$99 / Monthly",
+                    },
+                    {
+                      feature: "Reputation Management",
+                      logos: [<span key="be" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#1DA462" }}>BE</span>, <span key="yx" className="inline-flex items-center justify-center w-5 h-5 rounded text-white text-[9px] font-black" style={{ background: "#E4002B" }}>YX</span>],
+                      replaces: "Birdeye / Yext",
+                      cost: "$159 / Monthly",
+                    },
+                    {
+                      feature: "White-Label Mobile App",
+                      logos: [],
+                      replaces: "Unique to HighLevel",
+                      cost: "—",
+                    },
+                  ].map((row, i) => (
+                    <tr
+                      key={row.feature}
+                      className={`border-b border-border/60 last:border-0 hover:bg-blue-50/40 transition-colors ${i % 2 === 0 ? "bg-white" : "bg-blue-50/30"}`}
+                      data-testid={`comparison-row-${i}`}
+                    >
+                      <td className="px-5 py-3.5 font-semibold text-foreground text-sm">{row.feature}</td>
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="flex items-center justify-center gap-2">
+                          {row.logos.length > 0 ? row.logos : <span className="text-xs text-primary font-semibold">{row.replaces}</span>}
+                          {row.logos.length > 0 && <span className="text-xs text-muted-foreground hidden md:inline">{row.replaces}</span>}
+                        </div>
+                      </td>
+                      <td className="px-4 py-3.5 text-center font-semibold text-muted-foreground text-sm">{row.cost}</td>
+                      <td className="px-4 py-3.5 text-center bg-primary/5">
+                        <span className="text-primary font-black text-xl">✔</span>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
+                <tfoot>
+                  <tr className="border-t-2 border-primary/30 bg-muted/40">
+                    <td colSpan={2} className="px-5 py-4 font-black text-foreground uppercase tracking-wider text-sm">Overall Price</td>
+                    <td className="px-4 py-4 text-center font-black text-red-500 text-base">$1,612 / Month</td>
+                    <td className="px-4 py-4 text-center bg-primary/10">
+                      <span className="inline-block bg-primary text-white font-black text-base px-3 py-1 rounded-lg">$97 / Month</span>
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
-            </div>
-          </motion.div>
-
-          {/* Tools being replaced */}
-          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="mt-10">
-            <p className="text-center text-sm text-muted-foreground mb-6 font-medium uppercase tracking-widest">HighLevel replaces all of these:</p>
-            <div className="rounded-3xl border border-border overflow-hidden shadow-sm">
-              {[
-                { logo: <SiHubspot size={22} color="#FF7A59" />, name: "HubSpot",       desc: "CRM & email marketing",         price: "$800+/mo" },
-                { logo: <SiMailchimp size={22} color="#F2C94C" />, name: "Mailchimp",   desc: "Email campaigns & lists",       price: "$299+/mo" },
-                { logo: <SiSalesforce size={22} color="#00A1E0" />, name: "Salesforce", desc: "Enterprise CRM & pipeline",     price: "$1,000+/mo" },
-                { logo: <SiCalendly size={22} color="#006BFF" />, name: "Calendly",     desc: "Appointment scheduling",        price: "$20+/mo" },
-                {
-                  logo: <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#E8593C" }}>CF</div>,
-                  name: "Clickfunnels", desc: "Sales funnels & pages",          price: "$127+/mo",
-                },
-                {
-                  logo: <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#7B5CF0" }}>K</div>,
-                  name: "Kajabi",       desc: "Courses & memberships",          price: "$119+/mo",
-                },
-                {
-                  logo: <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#1DA462" }}>BE</div>,
-                  name: "Birdeye",      desc: "Review & reputation management", price: "$299+/mo",
-                },
-              ].map((tool, i) => (
-                <div
-                  key={tool.name}
-                  className={`flex items-center gap-4 px-5 py-3.5 border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors ${i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
-                >
-                  <div className="shrink-0 w-7 flex items-center justify-center">{tool.logo}</div>
-                  <div className="flex-1 min-w-0">
-                    <span className="font-semibold text-foreground text-sm">{tool.name}</span>
-                    <span className="text-muted-foreground text-xs ml-2 hidden sm:inline">{tool.desc}</span>
-                  </div>
-                  <div className="shrink-0 text-sm font-bold text-red-400">{tool.price}</div>
-                  <div className="shrink-0 text-xs text-muted-foreground line-through hidden md:block">per month</div>
-                </div>
-              ))}
             </div>
           </motion.div>
 
