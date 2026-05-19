@@ -131,7 +131,7 @@ export default function Home() {
             VENKAT<span className="text-primary">.</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
-            {["About", "Software", "Reviews", "FAQ"].map((item) => (
+            {["About", "Software", "Course", "Reviews", "FAQ"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -624,6 +624,121 @@ export default function Home() {
             </Button>
             <p className="text-xs text-gray-400 mt-3">Start Free Trial. No Contracts. Cancel Anytime.</p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── COURSE ── */}
+      <section id="course" className="py-24 md:py-32 px-6 bg-white">
+        <div className="container mx-auto max-w-5xl">
+
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
+              Free Training
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black font-display text-[#0a0a0a] mb-4">
+              The <span className="text-primary">AI Agency Blueprint</span>
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+              The exact step-by-step system Venkat used to build a 7-figure agency — and how you get it 100% FREE when you start your HighLevel trial.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-14 items-start">
+
+            {/* Left — module list */}
+            <motion.div {...fadeUp}>
+              <h3 className="text-lg font-black font-display text-[#0a0a0a] mb-6 flex items-center gap-2">
+                <BookOpen size={18} className="text-primary" />
+                What You'll Learn Inside:
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { num: "01", title: "Business Setup: AI & Quick Wins", desc: "Get your agency identity, tools, and first quick-win clients set up from day one." },
+                  { num: "02", title: "Agency Account Setup: White Label & SaaS", desc: "Fully white-label HighLevel as your own software and set up your SaaS pricing." },
+                  { num: "03", title: "Launch & Scale Your Own Software (SaaS)", desc: "Package your agency as a software product and start charging monthly subscriptions." },
+                  { num: "04", title: "Launch & Scale AI Agency with Software (SwaS)", desc: "Combine done-for-you services with your software to command premium pricing." },
+                  { num: "05", title: "How to Get Clients: Powered by AI", desc: "Venkat's proven outreach system using AI to generate leads and close deals on autopilot." },
+                  { num: "06", title: "Build a Semi-Passive Income Business", desc: "Systemize your delivery so the business runs without you being in it every day." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.num}
+                    {...stagger(i)}
+                    className="flex gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-4 hover:border-primary/30 hover:bg-white transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-primary text-white font-black text-sm flex items-center justify-center shrink-0">
+                      {item.num}
+                    </div>
+                    <div>
+                      <div className="font-bold text-[#0a0a0a] text-sm mb-0.5">{item.title}</div>
+                      <div className="text-xs text-gray-500 leading-relaxed">{item.desc}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right — bonuses + value + CTA */}
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.15 }} className="flex flex-col gap-6">
+
+              {/* Bonuses */}
+              <div>
+                <h3 className="text-lg font-black font-display text-[#0a0a0a] mb-4 flex items-center gap-2">
+                  <Star size={18} className="text-primary" />
+                  Exclusive Bonuses Included:
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { badge: "BONUS #1", title: "1-on-1 Kickoff Call", desc: "Get a personal onboarding call with Venkat's team to map out your 30-day launch plan." },
+                    { badge: "BONUS #2", title: "Live Bootcamp Access", desc: "Join real-time training sessions with Venkat — ask questions, get feedback, stay accountable." },
+                    { badge: "BONUS #3", title: "Pre-Built Snapshots & Funnels", desc: "Done-for-you HighLevel snapshots you can deploy for clients instantly — no building from scratch." },
+                    { badge: "BONUS #4", title: "Clone Yourself with AI", desc: "Venkat's exact AI strategy for creating content and building authority without a camera crew." },
+                    { badge: "BONUS #5", title: "Private Student Community", desc: "Access a thriving group of agency owners sharing wins, strategies, and accountability daily." },
+                  ].map((b, i) => (
+                    <div key={b.badge} className="flex items-start gap-3">
+                      <div className="px-2 py-0.5 rounded bg-primary text-white text-[10px] font-black uppercase tracking-wider shrink-0 mt-0.5">
+                        {b.badge}
+                      </div>
+                      <div>
+                        <span className="font-bold text-[#0a0a0a] text-sm">{b.title} — </span>
+                        <span className="text-xs text-gray-500">{b.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Value stack */}
+              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-3">Total Value</p>
+                <div className="space-y-2 mb-4">
+                  {[
+                    { label: "AI Agency Blueprint Course", value: "$499" },
+                    { label: "1-on-1 Kickoff Call", value: "$150" },
+                    { label: "Live Bootcamp Access", value: "$299" },
+                    { label: "Done-For-You Snapshots & Funnels", value: "$199" },
+                    { label: "Clone Yourself with AI Training", value: "$149" },
+                    { label: "Private Community Access", value: "$99" },
+                  ].map((row) => (
+                    <div key={row.label} className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">{row.label}</span>
+                      <span className="font-bold text-gray-400 line-through">{row.value}</span>
+                    </div>
+                  ))}
+                  <div className="flex justify-between items-center pt-3 border-t border-gray-200">
+                    <span className="font-black text-[#0a0a0a] text-base">Your Price Today</span>
+                    <span className="font-black text-primary text-2xl">FREE</span>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-400 text-center">When you start your 30-day HighLevel trial through Venkat's link</p>
+              </div>
+
+              <Button size="lg" className="h-14 w-full text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-lg">
+                Claim Free Access Now →
+              </Button>
+              <p className="text-xs text-gray-400 text-center -mt-3">No credit card required. Start Free. Cancel Anytime.</p>
+
+            </motion.div>
+          </div>
         </div>
       </section>
 
