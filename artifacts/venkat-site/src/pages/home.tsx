@@ -60,6 +60,206 @@ function CountdownTimer() {
   );
 }
 
+const socialProofEntries = [
+  { name: "Marcus T.", location: "Atlanta, GA", action: "just started his free trial", time: "2 min ago", avatar: "MT" },
+  { name: "Priya S.", location: "Dallas, TX", action: "signed up through Venkat's link", time: "5 min ago", avatar: "PS" },
+  { name: "Jake R.", location: "Phoenix, AZ", action: "claimed the free training", time: "9 min ago", avatar: "JR" },
+  { name: "Leila M.", location: "Chicago, IL", action: "just joined the community", time: "12 min ago", avatar: "LM" },
+  { name: "Devon W.", location: "Houston, TX", action: "started his 30-day trial", time: "18 min ago", avatar: "DW" },
+  { name: "Sophia K.", location: "Miami, FL", action: "claimed the bonus bundle", time: "21 min ago", avatar: "SK" },
+];
+
+function SocialProofPopup() {
+  const [current, setCurrent] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const showNext = (idx: number) => {
+      setCurrent(idx);
+      setVisible(true);
+      setTimeout(() => setVisible(false), 4500);
+    };
+    const delay = setTimeout(() => showNext(0), 3000);
+    return () => clearTimeout(delay);
+  }, []);
+
+  useEffect(() => {
+    if (!visible) {
+      const next = setTimeout(() => {
+        const nextIdx = (current + 1) % socialProofEntries.length;
+        setCurrent(nextIdx);
+        setVisible(true);
+        setTimeout(() => setVisible(false), 4500);
+      }, 6000);
+      return () => clearTimeout(next);
+    }
+  }, [visible, current]);
+
+  const entry = socialProofEntries[current];
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, y: 20, x: -10 }}
+          animate={{ opacity: 1, y: 0, x: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.4 }}
+          className="fixed bottom-6 left-6 z-50 flex items-center gap-3 bg-white rounded-2xl shadow-2xl border border-gray-100 px-4 py-3 max-w-xs"
+          style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.13)' }}
+        >
+          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-black text-xs shrink-0">
+            {entry.avatar}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-bold text-[#0a0a0a] truncate">{entry.name} <span className="font-normal text-gray-500">from {entry.location}</span></p>
+            <p className="text-xs text-gray-500 truncate">{entry.action}</p>
+            <p className="text-[10px] text-primary font-semibold mt-0.5">⏱ {entry.time}</p>
+          </div>
+          <button onClick={() => setVisible(false)} className="text-gray-300 hover:text-gray-500 text-sm shrink-0 ml-1">✕</button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+const caseStudies = [
+  {
+    name: "Marcus Thompson",
+    location: "Atlanta, GA",
+    role: "Former Sales Rep",
+    avatar: "MT",
+    before: "$2,800/mo",
+    after: "$11,400/mo",
+    timeline: "4 months",
+    quote: "I was stuck in a 9-to-5 with a cap on my earnings. Venkat's system showed me exactly how to land my first 3 clients in under 30 days. Now I run a full white-label agency and I've never looked back.",
+    highlights: ["First client in 18 days", "Replaced full-time salary by month 3", "Now managing 9 clients"],
+  },
+  {
+    name: "Priya Sharma",
+    location: "Dallas, TX",
+    role: "Stay-at-Home Mom",
+    avatar: "PS",
+    before: "$0/mo",
+    after: "$5,900/mo",
+    timeline: "3 months",
+    quote: "I had zero tech background. Venkat's training broke everything down so simply that I had my first paying client before I even finished the course. This has completely changed my family's life.",
+    highlights: ["No prior tech experience", "First client in 22 days", "Works 20 hrs/week from home"],
+  },
+  {
+    name: "Devon Wright",
+    location: "Houston, TX",
+    role: "Recent College Grad",
+    avatar: "DW",
+    before: "$1,200/mo",
+    after: "$8,700/mo",
+    timeline: "5 months",
+    quote: "I graduated with no job prospects. Within 5 months of following this system I was earning more than my friends who landed corporate gigs. The HighLevel platform basically sells itself.",
+    highlights: ["Started with $0 savings", "Landed first client via cold outreach", "Hit $8K/mo without any paid ads"],
+  },
+];
+
+function CaseStudySection() {
+  const [active, setActive] = useState(0);
+  const s = caseStudies[active];
+  return (
+    <section className="py-24 md:py-32 px-6 bg-white">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div {...fadeUp} className="text-center mb-14">
+          <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
+            Success Stories
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black font-display text-[#0a0a0a] mb-4">
+            Real People. <span className="text-primary">Real Numbers.</span>
+          </h2>
+          <p className="text-xl text-gray-500 max-w-xl mx-auto">
+            Here's what happened when everyday people followed the same system Venkat teaches.
+          </p>
+        </motion.div>
+
+        {/* Tabs */}
+        <div className="flex gap-3 justify-center mb-10 flex-wrap">
+          {caseStudies.map((cs, i) => (
+            <button
+              key={cs.name}
+              onClick={() => setActive(i)}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+                active === i
+                  ? "bg-primary text-white shadow-md"
+                  : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+              }`}
+            >
+              {cs.name.split(" ")[0]}
+            </button>
+          ))}
+        </div>
+
+        {/* Card */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35 }}
+            className="bg-white border border-gray-200 rounded-3xl p-8 md:p-10 shadow-sm grid md:grid-cols-5 gap-8"
+          >
+            {/* Left */}
+            <div className="md:col-span-2 flex flex-col gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white font-black text-lg shrink-0">
+                  {s.avatar}
+                </div>
+                <div>
+                  <p className="font-black text-[#0a0a0a] text-lg">{s.name}</p>
+                  <p className="text-sm text-gray-500">{s.role} · {s.location}</p>
+                </div>
+              </div>
+
+              {/* Before / After */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-red-50 rounded-2xl p-4 text-center">
+                  <p className="text-xs text-red-400 font-bold uppercase tracking-widest mb-1">Before</p>
+                  <p className="text-2xl font-black text-red-500">{s.before}</p>
+                </div>
+                <div className="bg-green-50 rounded-2xl p-4 text-center">
+                  <p className="text-xs text-green-500 font-bold uppercase tracking-widest mb-1">After</p>
+                  <p className="text-2xl font-black text-green-600">{s.after}</p>
+                </div>
+              </div>
+              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-4 text-center">
+                <p className="text-xs text-primary font-bold uppercase tracking-widest mb-1">Timeline</p>
+                <p className="text-xl font-black text-primary">{s.timeline}</p>
+              </div>
+            </div>
+
+            {/* Right */}
+            <div className="md:col-span-3 flex flex-col gap-6 justify-center">
+              <div className="flex gap-1 mb-1">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} size={14} style={{ fill: '#16a34a', color: '#16a34a' }} />
+                ))}
+              </div>
+              <blockquote className="text-gray-700 text-lg leading-relaxed italic border-l-4 border-primary pl-5">
+                "{s.quote}"
+              </blockquote>
+              <ul className="flex flex-col gap-2 mt-2">
+                {s.highlights.map((h) => (
+                  <li key={h} className="flex items-center gap-2 text-sm text-gray-700 font-medium">
+                    <CheckCircle2 size={15} className="text-primary shrink-0" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -178,6 +378,8 @@ const reviews = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#0a0a0a] overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
+
+      <SocialProofPopup />
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
@@ -854,6 +1056,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <CaseStudySection />
 
       {/* ── REVIEWS ── */}
       <section id="reviews" className="py-24 md:py-32 px-6 bg-gray-50 border-y border-gray-100">
