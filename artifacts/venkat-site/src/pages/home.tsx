@@ -422,63 +422,90 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Two-column comparison table */}
+          {/* Multi-column comparison table */}
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }}>
-            <div className="overflow-hidden rounded-3xl border border-border shadow-sm" data-testid="software-comparison-table">
-              {/* Header */}
-              <div className="grid grid-cols-3 border-b border-border bg-muted/40">
-                <div className="px-6 py-5 font-semibold text-muted-foreground text-sm">Feature</div>
-                <div className="px-6 py-5 text-center bg-primary/10 border-x border-primary/25">
-                  <div className="text-xs font-bold tracking-widest uppercase text-primary mb-0.5">Venkat Uses</div>
-                  <div className="font-black text-base text-foreground font-display">HighLevel</div>
-                </div>
-                <div className="px-6 py-5 text-center font-semibold text-muted-foreground text-sm">Other Tools</div>
-              </div>
-
-              {/* Rows */}
-              {[
-                { feature: "CRM & Pipeline Management",         ghl: true,  others: false },
-                { feature: "Email Marketing & Automation",      ghl: true,  others: true  },
-                { feature: "SMS & Text Marketing",              ghl: true,  others: false },
-                { feature: "Funnel & Landing Page Builder",     ghl: true,  others: false },
-                { feature: "Appointment Booking & Calendar",    ghl: true,  others: false },
-                { feature: "Website & Blog Builder",            ghl: true,  others: false },
-                { feature: "AI Chatbot & Conversations",        ghl: true,  others: false },
-                { feature: "Reputation & Review Management",    ghl: true,  others: false },
-                { feature: "White-Label & Resell as SaaS",      ghl: true,  others: false },
-                { feature: "Unlimited Client Sub-Accounts",     ghl: true,  others: false },
-                { feature: "Courses & Membership Sites",        ghl: true,  others: false },
-              ].map((row, i) => (
-                <div
-                  key={row.feature}
-                  className={`grid grid-cols-3 border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors ${i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
-                  data-testid={`comparison-row-${i}`}
-                >
-                  <div className="px-6 py-4 font-medium text-foreground text-sm flex items-center">{row.feature}</div>
-                  <div className="px-6 py-4 flex items-center justify-center bg-primary/5 border-x border-primary/15">
-                    <CheckCircle2 size={20} className="text-primary" />
-                  </div>
-                  <div className="px-6 py-4 flex items-center justify-center">
-                    {row.others
-                      ? <CheckCircle2 size={18} className="text-muted-foreground/40" />
-                      : <span className="text-red-400 font-bold text-xl leading-none">✕</span>
-                    }
-                  </div>
-                </div>
-              ))}
-
-              {/* Pricing row */}
-              <div className="grid grid-cols-3 border-t-2 border-border bg-muted/30">
-                <div className="px-6 py-5 font-bold text-foreground text-sm flex items-center">Monthly Cost</div>
-                <div className="px-6 py-5 flex flex-col items-center justify-center bg-primary/10 border-x border-primary/25">
-                  <span className="font-black text-2xl text-primary font-display">$97</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">all-in-one</span>
-                </div>
-                <div className="px-6 py-5 flex flex-col items-center justify-center">
-                  <span className="font-black text-2xl text-red-400 font-display">$2,000+</span>
-                  <span className="text-xs text-muted-foreground mt-0.5">across 7+ tools</span>
-                </div>
-              </div>
+            <div className="overflow-x-auto rounded-3xl border border-border shadow-sm" data-testid="software-comparison-table">
+              <table className="w-full min-w-[640px] text-sm">
+                {/* Header */}
+                <thead>
+                  <tr className="border-b border-border bg-muted/40">
+                    <th className="text-left px-5 py-5 font-semibold text-muted-foreground w-[32%]">Feature</th>
+                    {/* HighLevel — highlighted */}
+                    <th className="px-4 py-4 text-center bg-primary/10 border-x border-primary/25 w-[17%]">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                          <Zap size={14} className="text-white" />
+                        </div>
+                        <span className="font-black text-xs text-foreground font-display leading-tight">HighLevel</span>
+                        <span className="text-[10px] text-primary font-bold uppercase tracking-wide">Venkat Uses</span>
+                      </div>
+                    </th>
+                    {/* Competitors */}
+                    <th className="px-3 py-4 text-center w-[13%]">
+                      <div className="flex flex-col items-center gap-1">
+                        <SiHubspot size={24} color="#FF7A59" />
+                        <span className="text-xs font-semibold text-muted-foreground">HubSpot</span>
+                      </div>
+                    </th>
+                    <th className="px-3 py-4 text-center w-[13%]">
+                      <div className="flex flex-col items-center gap-1">
+                        <SiMailchimp size={24} color="#F2C94C" />
+                        <span className="text-xs font-semibold text-muted-foreground">Mailchimp</span>
+                      </div>
+                    </th>
+                    <th className="px-3 py-4 text-center w-[13%]">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#E8593C" }}>CF</div>
+                        <span className="text-xs font-semibold text-muted-foreground">Clickfunnels</span>
+                      </div>
+                    </th>
+                    <th className="px-3 py-4 text-center w-[12%]">
+                      <div className="flex flex-col items-center gap-1">
+                        <SiSalesforce size={24} color="#00A1E0" />
+                        <span className="text-xs font-semibold text-muted-foreground">Salesforce</span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { feature: "CRM & Pipeline",         ghl: true,  hs: true,  mc: false, cf: false, sf: true  },
+                    { feature: "Email Automation",        ghl: true,  hs: true,  mc: true,  cf: false, sf: true  },
+                    { feature: "SMS Marketing",           ghl: true,  hs: false, mc: false, cf: false, sf: false },
+                    { feature: "Funnel Builder",          ghl: true,  hs: false, mc: false, cf: true,  sf: false },
+                    { feature: "Appointment Booking",     ghl: true,  hs: true,  mc: false, cf: false, sf: false },
+                    { feature: "Website Builder",         ghl: true,  hs: true,  mc: true,  cf: true,  sf: false },
+                    { feature: "AI Chatbot",              ghl: true,  hs: false, mc: false, cf: false, sf: false },
+                    { feature: "Review Management",       ghl: true,  hs: false, mc: false, cf: false, sf: false },
+                    { feature: "White-Label & Resell",    ghl: true,  hs: false, mc: false, cf: false, sf: false },
+                    { feature: "Unlimited Sub-Accounts",  ghl: true,  hs: false, mc: false, cf: false, sf: false },
+                    { feature: "Courses & Memberships",   ghl: true,  hs: false, mc: false, cf: true,  sf: false },
+                    { feature: "Monthly Cost",            ghl: "$97", hs: "$800+", mc: "$299+", cf: "$127+", sf: "$1k+" },
+                  ].map((row, i) => {
+                    const isPrice = typeof row.ghl === "string";
+                    const check = (val: boolean | string) =>
+                      typeof val === "string"
+                        ? <span className={`font-black text-sm ${val === "$97" ? "text-primary" : "text-red-400"}`}>{val}</span>
+                        : val
+                        ? <CheckCircle2 size={17} className="text-primary mx-auto" />
+                        : <span className="text-muted-foreground/30 font-bold text-base">✕</span>;
+                    return (
+                      <tr
+                        key={row.feature}
+                        className={`border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors ${isPrice ? "bg-muted/30 border-t-2 border-border font-bold" : i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
+                        data-testid={`comparison-row-${i}`}
+                      >
+                        <td className={`px-5 py-3.5 text-sm ${isPrice ? "font-bold text-foreground" : "font-medium text-foreground"}`}>{row.feature}</td>
+                        <td className="px-4 py-3.5 text-center bg-primary/5 border-x border-primary/15">{check(row.ghl)}</td>
+                        <td className="px-3 py-3.5 text-center">{check(row.hs)}</td>
+                        <td className="px-3 py-3.5 text-center">{check(row.mc)}</td>
+                        <td className="px-3 py-3.5 text-center">{check(row.cf)}</td>
+                        <td className="px-3 py-3.5 text-center">{check(row.sf)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </motion.div>
 
