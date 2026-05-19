@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar, Briefcase, Clock, Laptop, GraduationCap, Store, Rocket } from "lucide-react";
 import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
 import { Linkedin } from "lucide-react";
-import officeManImg from "@assets/office_man_1779185520142.jpg";
+import officeManImg from "@assets/smiling-indian-man-working-laptop_1779188973563.avif";
 import saasImg from "@assets/saas_1779185549378.jpg";
 import cloneImg from "@assets/clone_1779185556620.jpg";
 import bootcampImg from "@assets/bootcamp_1779185564292.jpg";
