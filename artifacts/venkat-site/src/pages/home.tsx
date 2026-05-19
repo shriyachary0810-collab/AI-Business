@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar, Briefcase, Clock, Laptop, GraduationCap, Store, Rocket } from "lucide-react";
 import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
 import { Linkedin } from "lucide-react";
+import officeManImg from "@assets/office_man_1779185520142.jpg";
+import saasImg from "@assets/saas_1779185549378.jpg";
+import cloneImg from "@assets/clone_1779185556620.jpg";
+import bootcampImg from "@assets/bootcamp_1779185564292.jpg";
 
 function useCountdown(targetDate: Date) {
   const calc = () => {
@@ -454,21 +458,15 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Right — photo placeholder */}
+          {/* Right — hero image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden border-2 border-dashed border-primary/30 bg-gray-50 flex flex-col items-center justify-center p-8 group">
-              <div className="w-28 h-28 rounded-full border-2 border-dashed border-primary/40 flex items-center justify-center mb-5 group-hover:border-primary group-hover:scale-105 transition-all duration-300">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                  <Users size={36} />
-                </div>
-              </div>
-              <p className="text-base font-bold text-gray-500 text-center">[ Add Venkat's Photo Here ]</p>
-              <p className="text-sm text-gray-400 text-center mt-1 max-w-[200px]">A high-quality, confident portrait works best.</p>
+            <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-xl">
+              <img src={officeManImg} alt="Venkat" className="w-full h-full object-cover object-top" />
             </div>
           </motion.div>
         </div>
@@ -573,17 +571,13 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Photo placeholder */}
+            {/* Venkat photo */}
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border-2 border-dashed border-primary/30 bg-gray-50 flex flex-col items-center justify-center p-8 group"
+              className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden shadow-lg"
             >
-              <div className="w-20 h-20 rounded-full border-2 border-dashed border-primary/40 flex items-center justify-center mb-5 group-hover:border-primary transition-all">
-                <Award className="text-primary w-10 h-10" />
-              </div>
-              <p className="text-base font-bold text-gray-500 text-center">[ Add Lifestyle Photo ]</p>
-              <p className="text-sm text-gray-400 text-center mt-1 max-w-[200px]">Speaking on stage or working at desk.</p>
+              <img src={officeManImg} alt="Venkat" className="w-full h-full object-cover object-top" />
             </motion.div>
           </div>
         </div>
@@ -863,16 +857,22 @@ export default function Home() {
                 badge: "FREE BONUS #1",
                 title: "SaaS & SwaS Playbook",
                 desc: "The exact playbook Venkat uses to run a software + services agency. White-label HighLevel and sell it as your own product.",
+                img: saasImg,
+                imgAlt: "SaaS Playbook",
               },
               {
                 badge: "FREE BONUS #2",
                 title: "Clone Yourself with AI Videos",
                 desc: "Venkat's personal strategy for using AI to create content, build authority, and grow your agency on YouTube without a camera crew.",
+                img: cloneImg,
+                imgAlt: "AI Clone Videos",
               },
               {
                 badge: "FREE BONUS #3",
                 title: "Live Bootcamp + Snapshots & Funnels",
                 desc: "Hands-on live training sessions plus pre-built HighLevel snapshots and funnel templates you can deploy for clients instantly.",
+                img: bootcampImg,
+                imgAlt: "HighLevel Bootcamp",
               },
             ].map((bonus, i) => (
               <motion.div
@@ -885,10 +885,8 @@ export default function Home() {
                 </div>
                 <h3 className="font-black font-display text-lg text-[#0a0a0a]">{bonus.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed flex-1">{bonus.desc}</p>
-                {/* Photo placeholder for bonus */}
-                <div className="aspect-video rounded-xl border-2 border-dashed border-primary/20 bg-gray-50 flex flex-col items-center justify-center gap-1">
-                  <Megaphone size={20} className="text-primary/40" />
-                  <p className="text-xs text-gray-400">[ Add Bonus Preview Image ]</p>
+                <div className="aspect-video rounded-xl overflow-hidden">
+                  <img src={bonus.img} alt={bonus.imgAlt} className="w-full h-full object-cover" />
                 </div>
               </motion.div>
             ))}
