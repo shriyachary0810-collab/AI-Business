@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play, TrendingUp, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen } from "lucide-react";
+import { Play, TrendingUp, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar } from "lucide-react";
 import { SiYoutube, SiInstagram, SiThreads } from "react-icons/si";
 import { Linkedin } from "lucide-react";
 
@@ -339,34 +339,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What Venkat Does / Video Section */}
+      {/* What is GoHighLevel */}
       <section className="py-24 md:py-32 px-6 bg-muted/30 border-y border-border/50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <motion.div {...fadeUp}>
-            <h2 className="text-4xl md:text-5xl font-black font-display mb-6">
-              What I Actually Do
+        <div className="container mx-auto max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-12">
+            <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
+              The Platform
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black font-display mb-4">
+              What is GoHighLevel?
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-              I don't just teach theory. I run a highly profitable digital marketing agency managing over 300 active client accounts daily.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              See it in 2 minutes — Inside Tour
             </p>
           </motion.div>
 
           <motion.div
             {...fadeUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative aspect-video w-full rounded-3xl overflow-hidden border border-border bg-card shadow-2xl flex flex-col items-center justify-center group cursor-pointer"
-            data-testid="video-placeholder"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative aspect-video w-full rounded-3xl overflow-hidden border border-border bg-card shadow-2xl flex flex-col items-center justify-center group cursor-pointer mb-14"
+            data-testid="ghl-video-placeholder"
           >
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50" />
             <div className="w-24 h-24 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 relative z-10">
               <Play className="w-10 h-10 ml-2" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-display font-bold relative z-10">
-              [ Venkat's Video Coming Soon ]
+            <h3 className="text-xl md:text-2xl font-display font-bold relative z-10">
+              [ Embed GoHighLevel 2-Minute Tour Video Here ]
             </h3>
-            <p className="text-muted-foreground mt-4 relative z-10">
-              Upload your main VSL (Video Sales Letter) here.
+            <p className="text-muted-foreground mt-3 text-sm relative z-10">
+              Paste a YouTube or Vimeo link to the official GHL inside tour.
             </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {[
+              { icon: Zap, title: "All-in-One CRM", desc: "Manage every client, lead, and deal from a single dashboard — no more juggling 10 apps." },
+              { icon: BarChart3, title: "Funnels & Websites", desc: "Build high-converting sales funnels and landing pages with drag-and-drop simplicity." },
+              { icon: MessageSquare, title: "Email & SMS Marketing", desc: "Send automated follow-ups, broadcasts, and campaigns across email, SMS, and voicemail." },
+              { icon: Calendar, title: "Appointment Booking", desc: "Automated booking, reminders, and follow-ups — your calendar fills itself." },
+              { icon: Star, title: "Reputation Management", desc: "Request and manage Google reviews automatically to build social proof at scale." },
+              { icon: Users, title: "White-Label & Resell", desc: "Brand it as your own software and charge clients a monthly subscription fee." },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                {...stagger(i)}
+                className="flex items-start gap-4 bg-card border border-border/50 rounded-2xl p-5 hover:border-primary/30 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <item.icon size={18} className="text-primary" />
+                </div>
+                <div>
+                  <div className="font-bold text-foreground text-sm mb-1">{item.title}</div>
+                  <div className="text-xs text-muted-foreground leading-relaxed">{item.desc}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }} className="text-center mt-12">
+            <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90">
+              Get 30-Day Free Trial
+            </Button>
+            <p className="text-xs text-muted-foreground mt-3">Free training included when you sign up through Venkat's link.</p>
           </motion.div>
         </div>
       </section>
