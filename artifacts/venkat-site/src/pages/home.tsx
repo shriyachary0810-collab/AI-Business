@@ -321,19 +321,20 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Video placeholder */}
+          {/* HighLevel Platform Tour Video */}
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative aspect-video w-full rounded-3xl overflow-hidden border border-gray-200 bg-white shadow-lg flex flex-col items-center justify-center group cursor-pointer mb-14"
+            className="relative aspect-video w-full rounded-3xl overflow-hidden border border-gray-200 shadow-lg mb-14"
           >
-            <div className="w-24 h-24 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <Play className="w-10 h-10 ml-2 text-primary group-hover:text-white" />
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#0a0a0a]">
-              [ Embed HighLevel 2-Minute Tour Video Here ]
-            </h3>
-            <p className="text-gray-400 mt-2 text-sm">Paste a YouTube or Vimeo link to the official GHL inside tour.</p>
+            <iframe
+              src="https://www.youtube.com/embed/VD2aBhLWZGY?rel=0&modestbranding=1"
+              title="What Is HighLevel? Platform Tour"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+              style={{ border: 0 }}
+            />
           </motion.div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -678,7 +679,7 @@ export default function Home() {
               >
                 <div className="flex gap-1">
                   {Array.from({ length: r.stars }).map((_, j) => (
-                    <Star key={j} size={14} className="fill-primary text-primary" />
+                    <Star key={j} size={14} style={{ fill: '#16a34a', color: '#16a34a' }} />
                   ))}
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed flex-1">"{r.text}"</p>
