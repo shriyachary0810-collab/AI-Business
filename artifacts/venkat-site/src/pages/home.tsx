@@ -1,9 +1,64 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar, Briefcase, Clock, Laptop, GraduationCap, Store, Rocket } from "lucide-react";
 import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
 import { Linkedin } from "lucide-react";
+
+function useCountdown(targetDate: Date) {
+  const calc = () => {
+    const diff = targetDate.getTime() - Date.now();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    };
+  };
+  const [time, setTime] = useState(calc);
+  useEffect(() => {
+    const id = setInterval(() => setTime(calc()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return time;
+}
+
+function CountdownTimer() {
+  const target = new Date();
+  target.setDate(target.getDate() + 3);
+  target.setHours(23, 59, 59, 0);
+  const { days, hours, minutes, seconds } = useCountdown(target);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const blocks = [
+    { label: "Days", value: pad(days) },
+    { label: "Hours", value: pad(hours) },
+    { label: "Mins", value: pad(minutes) },
+    { label: "Secs", value: pad(seconds) },
+  ];
+  return (
+    <div className="flex items-center justify-center gap-3 my-8">
+      {blocks.map((b, i) => (
+        <div key={b.label} className="flex items-center gap-3">
+          <div className="flex flex-col items-center">
+            <div
+              className="w-16 h-16 md:w-20 md:h-20 rounded-xl flex items-center justify-center font-black font-display text-2xl md:text-3xl"
+              style={{ backgroundColor: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}
+            >
+              {b.value}
+            </div>
+            <span className="text-[10px] uppercase tracking-widest mt-1.5 font-bold" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              {b.label}
+            </span>
+          </div>
+          {i < blocks.length - 1 && (
+            <span className="text-2xl font-black mb-4" style={{ color: 'rgba(255,255,255,0.5)' }}>:</span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -781,11 +836,15 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-black font-display text-white mb-6">
               Get My Complete AI Agency Training For Free
             </h2>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-white/80 mb-4 max-w-2xl mx-auto">
               This is the exact system I use to scale. Normally valued at{" "}
               <span className="line-through opacity-60">$799</span>, you get it{" "}
               <strong className="text-white">100% FREE</strong> when you start a HighLevel trial through my partner link.
             </p>
+            <p className="text-sm font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              This offer expires in:
+            </p>
+            <CountdownTimer />
             <Button size="lg" className="h-16 px-12 text-xl font-bold bg-white text-primary hover:bg-gray-100 shadow-xl w-full md:w-auto">
               Claim Your Free Training Now
             </Button>
