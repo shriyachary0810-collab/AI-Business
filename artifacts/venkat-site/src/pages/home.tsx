@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play, TrendingUp, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar } from "lucide-react";
-import { SiYoutube, SiInstagram, SiThreads } from "react-icons/si";
+import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly } from "react-icons/si";
 import { Linkedin } from "lucide-react";
 
 const fadeUp = {
@@ -484,22 +484,64 @@ export default function Home() {
 
           {/* Tools being replaced */}
           <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="mt-10">
-            <p className="text-center text-sm text-muted-foreground mb-5 font-medium uppercase tracking-widest">HighLevel replaces all of these:</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                { name: "HubSpot", price: "$800+/mo" },
-                { name: "Clickfunnels", price: "$127+/mo" },
-                { name: "Mailchimp", price: "$299+/mo" },
-                { name: "Calendly", price: "$20+/mo" },
-                { name: "Salesforce", price: "$1,000+/mo" },
-                { name: "Kajabi", price: "$119+/mo" },
-                { name: "Birdeye", price: "$299+/mo" },
-              ].map((tool) => (
-                <div key={tool.name} className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/60 text-sm">
-                  <span className="font-semibold text-foreground">{tool.name}</span>
-                  <span className="text-muted-foreground text-xs">{tool.price}</span>
+            <p className="text-center text-sm text-muted-foreground mb-6 font-medium uppercase tracking-widest">HighLevel replaces all of these:</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {/* HubSpot */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <SiHubspot size={20} color="#FF7A59" />
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">HubSpot</div>
+                  <div className="text-muted-foreground text-xs">$800+/mo</div>
                 </div>
-              ))}
+              </div>
+              {/* Mailchimp */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <SiMailchimp size={20} color="#FFE01B" className="[filter:drop-shadow(0_0_1px_#aaa)]" />
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">Mailchimp</div>
+                  <div className="text-muted-foreground text-xs">$299+/mo</div>
+                </div>
+              </div>
+              {/* Salesforce */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <SiSalesforce size={20} color="#00A1E0" />
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">Salesforce</div>
+                  <div className="text-muted-foreground text-xs">$1,000+/mo</div>
+                </div>
+              </div>
+              {/* Calendly */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <SiCalendly size={20} color="#006BFF" />
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">Calendly</div>
+                  <div className="text-muted-foreground text-xs">$20+/mo</div>
+                </div>
+              </div>
+              {/* Clickfunnels — initial badge */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <div className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-black" style={{ background: "#E8593C" }}>CF</div>
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">Clickfunnels</div>
+                  <div className="text-muted-foreground text-xs">$127+/mo</div>
+                </div>
+              </div>
+              {/* Kajabi — initial badge */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <div className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-black" style={{ background: "#7B5CF0" }}>K</div>
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">Kajabi</div>
+                  <div className="text-muted-foreground text-xs">$119+/mo</div>
+                </div>
+              </div>
+              {/* Birdeye — initial badge */}
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
+                <div className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-black" style={{ background: "#1DA462" }}>BE</div>
+                <div>
+                  <div className="font-semibold text-foreground text-sm leading-tight">Birdeye</div>
+                  <div className="text-muted-foreground text-xs">$299+/mo</div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
