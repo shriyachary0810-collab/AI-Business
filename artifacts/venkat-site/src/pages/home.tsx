@@ -915,10 +915,10 @@ export default function Home() {
           <div className="container mx-auto px-6 py-8 max-w-4xl">
 
             {/* Name heading */}
-            <p className="text-center font-black font-display mb-1" style={{ color: '#ffffff', fontSize: '1.1rem', letterSpacing: '0.05em' }}>
+            <p className="font-black font-display mb-1" style={{ color: '#ffffff', fontSize: '1.1rem', letterSpacing: '0.05em' }}>
               VENKAT
             </p>
-            <p className="text-center mb-5" style={{ color: '#9ca3af', fontSize: '0.7rem', letterSpacing: '0.08em' }}>
+            <p className="mb-5" style={{ color: '#9ca3af', fontSize: '0.7rem', letterSpacing: '0.08em' }}>
               VENKAT COPYRIGHT MEDIA GROUP 2026
             </p>
 
