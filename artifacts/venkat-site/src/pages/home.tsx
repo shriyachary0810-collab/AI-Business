@@ -8,6 +8,12 @@ import officeManImg from "@assets/office_man_1779185520142.jpg";
 import saasImg from "@assets/saas_1779185549378.jpg";
 import cloneImg from "@assets/clone_1779185556620.jpg";
 import bootcampImg from "@assets/bootcamp_1779185564292.jpg";
+import arjunImg from "@assets/dev_1779187984050.jpg";
+import rahulImg from "@assets/arjun_1779187990678.jpg";
+import sureshImg from "@assets/rahul_1779187996480.jpg";
+import priyaImg from "@assets/pooja_1779188002726.jpg";
+import meenaImg from "@assets/meena_1779188007766.jpg";
+import divyaImg from "@assets/rupa_1779188013426.jpg";
 
 function useCountdown(targetDate: Date) {
   const calc = () => {
@@ -346,36 +352,42 @@ const reviews = [
     role: "Agency Owner, Hyderabad",
     stars: 5,
     text: "I had zero marketing background. Within 45 days of following Venkat's blueprint I signed my first 3 clients. The step-by-step structure removed all the guesswork.",
-  },
-  {
-    name: "Priya S.",
-    role: "Freelancer turned Agency CEO",
-    stars: 5,
-    text: "Venkat's training is the most actionable content I've consumed in years. No fluff, just the exact system that works. I crossed $5k/month in my third month.",
+    img: arjunImg,
   },
   {
     name: "Rahul T.",
     role: "Former IT professional",
     stars: 5,
     text: "I was skeptical at first but the results speak for themselves. The HighLevel setup alone saved me from building a complicated tech stack. Highly recommend.",
-  },
-  {
-    name: "Meena K.",
-    role: "Digital Marketer",
-    stars: 5,
-    text: "The community and templates alone are worth it. But having Venkat's strategy as a roadmap made the difference between spinning my wheels and actually closing deals.",
+    img: rahulImg,
   },
   {
     name: "Suresh V.",
     role: "SaaS Entrepreneur",
     stars: 5,
     text: "I've taken multiple courses. Venkat's is the only one where I immediately knew what to do the next morning. Clear, direct, and built by someone who is actively doing it.",
+    img: sureshImg,
+  },
+  {
+    name: "Priya S.",
+    role: "Freelancer turned Agency CEO",
+    stars: 5,
+    text: "Venkat's training is the most actionable content I've consumed in years. No fluff, just the exact system that works. I crossed $5k/month in my third month.",
+    img: priyaImg,
+  },
+  {
+    name: "Meena K.",
+    role: "Digital Marketer",
+    stars: 5,
+    text: "The community and templates alone are worth it. But having Venkat's strategy as a roadmap made the difference between spinning my wheels and actually closing deals.",
+    img: meenaImg,
   },
   {
     name: "Divya R.",
     role: "Mom & Business Owner",
     stars: 5,
     text: "Started part-time while managing my family. The done-for-you templates meant I didn't have to figure everything out myself. $3k in recurring revenue by month two.",
+    img: divyaImg,
   },
 ];
 
@@ -1084,9 +1096,11 @@ export default function Home() {
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed flex-1">"{r.text}"</p>
                 <div className="pt-3 border-t border-gray-100 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full border-2 border-dashed border-primary/30 bg-gray-50 flex items-center justify-center shrink-0">
-                    <Users size={14} className="text-primary/50" />
-                  </div>
+                  <img
+                    src={r.img}
+                    alt={r.name}
+                    className="w-9 h-9 rounded-full object-cover shrink-0"
+                  />
                   <div>
                     <div className="font-bold text-[#0a0a0a] text-sm">{r.name}</div>
                     <div className="text-xs text-gray-400">{r.role}</div>
@@ -1096,19 +1110,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Student screenshot placeholders */}
-          <motion.div
-            {...fadeUp}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4"
-          >
-            {["Add Student Screenshot", "Add Income Proof", "Add Video Testimonial", "Add Community Win"].map((label) => (
-              <div key={label} className="aspect-video rounded-2xl border-2 border-dashed border-primary/20 bg-white flex flex-col items-center justify-center gap-1 hover:border-primary/40 transition-colors">
-                <Users size={16} className="text-primary/40" />
-                <p className="text-xs text-gray-400 text-center px-2 font-medium">[ {label} ]</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
