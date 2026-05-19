@@ -629,46 +629,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── VENKAT'S RESULTS / PROOF PHOTOS ── */}
-      <section className="py-24 md:py-32 px-6 bg-white">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
-              Proof & Results
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black font-display text-[#0a0a0a] mb-4">
-              Real <span className="text-primary">Results.</span> Real People.
-            </h2>
-            <p className="text-xl text-gray-500 max-w-xl mx-auto">
-              Screenshots, income proof, and student wins — straight from Venkat's community.
-            </p>
-          </motion.div>
-
-          {/* Photo grid placeholders */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-            {[
-              "Add Income Screenshot #1",
-              "Add Income Screenshot #2",
-              "Add Student Win Screenshot",
-              "Add Award / Recognition Photo",
-              "Add Event / Speaking Photo",
-              "Add Team / Office Photo",
-            ].map((label, i) => (
-              <motion.div
-                key={label}
-                {...stagger(i)}
-                className="aspect-square rounded-2xl border-2 border-dashed border-primary/20 bg-gray-50 flex flex-col items-center justify-center gap-2 p-4 hover:border-primary/40 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Users size={18} className="text-primary" />
-                </div>
-                <p className="text-xs text-gray-400 text-center font-medium">[ {label} ]</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── OFFER / CTA BANNER ── */}
       <section className="py-24 md:py-32 px-6 bg-primary">
         <div className="container mx-auto max-w-4xl text-center">
@@ -775,8 +735,10 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-12 border-t border-gray-200 bg-gray-50">
-        <div className="container mx-auto px-6">
+      <footer className="border-t border-gray-200 bg-gray-50">
+
+        {/* Top footer row */}
+        <div className="container mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="font-display font-black text-xl tracking-tighter text-[#0a0a0a]">
               VENKAT<span className="text-primary">.</span>
@@ -798,8 +760,28 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <p className="text-gray-400 text-sm">
-              © 2026 Venkat. All rights reserved.
+            <div className="flex gap-5 text-sm text-gray-400">
+              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-primary transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Disclaimer / Copyright block */}
+        <div className="border-t border-gray-200 bg-white">
+          <div className="container mx-auto px-6 py-8 max-w-5xl">
+            <p className="text-xs text-gray-400 leading-relaxed text-center mb-4">
+              <strong className="text-gray-500">DISCLAIMER:</strong> This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc. This site is also not a part of the Google™ website or Alphabet Inc. GOOGLE™ is a trademark of ALPHABET Inc.
+            </p>
+            <p className="text-xs text-gray-400 leading-relaxed text-center mb-4">
+              <strong className="text-gray-500">EARNINGS DISCLAIMER:</strong> The results stated on this page are Venkat's personal results and the results of his students. Please understand these results are not typical. Venkat is an experienced internet marketer with years of practice. The average person who purchases any "how-to" information gets little to no results. Venkat is using these references for example purposes only. Your results will vary and depend on many factors including but not limited to your background, experience, and work ethic. All business entails risk as well as massive and consistent effort and action. If you're not willing to accept that, please do not sign up for this training.
+            </p>
+            <p className="text-xs text-gray-400 leading-relaxed text-center mb-4">
+              <strong className="text-gray-500">HIGHLEVEL AFFILIATE DISCLOSURE:</strong> Venkat is an independent HighLevel Affiliate, not an employee. He receives referral payments from HighLevel. The opinions expressed here are his own and are not official statements of HighLevel or its parent company, LLC.
+            </p>
+            <p className="text-xs text-gray-400 text-center">
+              © {new Date().getFullYear()} Venkat. All Rights Reserved. | Designed to help entrepreneurs build their dream agency.
             </p>
           </div>
         </div>
