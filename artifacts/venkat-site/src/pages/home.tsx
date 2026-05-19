@@ -64,12 +64,12 @@ const faqs = [
     a: "Absolutely not. The entire system is built for beginners. Venkat started from zero — broke, no connections, no experience — and built a 7-figure agency. The blueprint walks you through every step from scratch.",
   },
   {
-    q: "What exactly is GoHighLevel and why do I need it?",
-    a: "GoHighLevel is an all-in-one marketing platform that lets you build a fully functioning SaaS or agency business under your own brand. Venkat's team manages 300+ client sub-accounts inside it. You'll use it to deliver marketing services and software to clients without writing a single line of code.",
+    q: "What exactly is HighLevel and why do I need it?",
+    a: "HighLevel is an all-in-one marketing platform that lets you build a fully functioning SaaS or agency business under your own brand. Venkat's team manages 300+ client sub-accounts inside it. You'll use it to deliver marketing services and software to clients without writing a single line of code.",
   },
   {
     q: "How is the training actually free?",
-    a: "Venkat receives a commission when you start a GoHighLevel trial through his partner link. That commission covers the cost of the training, so you pay $0. You only pay GoHighLevel's normal subscription fee to use their platform.",
+    a: "Venkat receives a commission when you start a HighLevel trial through his partner link. That commission covers the cost of the training, so you pay $0. You only pay HighLevel's normal subscription fee to use their platform.",
   },
   {
     q: "How long does it take to launch my agency?",
@@ -77,7 +77,7 @@ const faqs = [
   },
   {
     q: "Will this work in my country?",
-    a: "Yes. GoHighLevel and digital marketing services work globally. Venkat has students running profitable agencies across North America, Europe, Southeast Asia, and beyond.",
+    a: "Yes. HighLevel and digital marketing services work globally. Venkat has students running profitable agencies across North America, Europe, Southeast Asia, and beyond.",
   },
   {
     q: "What do I get inside the course?",
@@ -102,7 +102,7 @@ const reviews = [
     name: "Rahul T.",
     role: "Former IT professional",
     stars: 5,
-    text: "I was skeptical at first but the results speak for themselves. The GoHighLevel setup alone saved me from building a complicated tech stack. Highly recommend.",
+    text: "I was skeptical at first but the results speak for themselves. The HighLevel setup alone saved me from building a complicated tech stack. Highly recommend.",
   },
   {
     name: "Meena K.",
@@ -200,7 +200,7 @@ export default function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">2026.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-md font-light leading-relaxed">
-              How I built a 7-figure software business using GoHighLevel — and how you can launch your own AI agency in 30 days, even as a complete beginner.
+              How I built a 7-figure software business using HighLevel — and how you can launch your own AI agency in 30 days, even as a complete beginner.
             </p>
             <ul className="space-y-2 pt-1">
               {[
@@ -298,7 +298,7 @@ export default function Home() {
                   I started my digital marketing agency when I was young, broke, and looking for a way out. No connections, no rich parents — just a laptop and an obsession with building something real.
                 </p>
                 <p>
-                  Today, that agency is a <strong className="text-foreground font-bold">7-figure powerhouse</strong>. We've been recognized by the <strong className="text-foreground font-bold">Inc 5000 Fastest-Growing Companies</strong> three years in a row, and earned the <strong className="text-foreground font-bold">Gold GoHighLevel SaaS Award</strong>.
+                  Today, that agency is a <strong className="text-foreground font-bold">7-figure powerhouse</strong>. We've been recognized by the <strong className="text-foreground font-bold">Inc 5000 Fastest-Growing Companies</strong> three years in a row, and earned the <strong className="text-foreground font-bold">Gold HighLevel SaaS Award</strong>.
                 </p>
                 <p>
                   My mission now is to help ambitious people skip years of trial and error. I help small to medium businesses grow with online marketing, and I teach entrepreneurs how to launch profitable AI and software agencies.
@@ -339,7 +339,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What is GoHighLevel */}
+      {/* What is HighLevel */}
       <section className="py-24 md:py-32 px-6 bg-muted/30 border-y border-border/50">
         <div className="container mx-auto max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-12">
@@ -347,7 +347,7 @@ export default function Home() {
               The Platform
             </div>
             <h2 className="text-4xl md:text-5xl font-black font-display mb-4">
-              What is GoHighLevel?
+              What is HighLevel?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               See it in 2 minutes — Inside Tour
@@ -365,7 +365,7 @@ export default function Home() {
               <Play className="w-10 h-10 ml-2" />
             </div>
             <h3 className="text-xl md:text-2xl font-display font-bold relative z-10">
-              [ Embed GoHighLevel 2-Minute Tour Video Here ]
+              [ Embed HighLevel 2-Minute Tour Video Here ]
             </h3>
             <p className="text-muted-foreground mt-3 text-sm relative z-10">
               Paste a YouTube or Vimeo link to the official GHL inside tour.
@@ -418,7 +418,7 @@ export default function Home() {
               One Platform. Everything You Need.
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Venkat built his 7-figure agency on GoHighLevel. You get access to the same all-in-one software — white-labeled as your own brand.
+              Venkat built his 7-figure agency on HighLevel. You get access to the same all-in-one software — white-labeled as your own brand.
             </p>
           </motion.div>
 
@@ -458,7 +458,7 @@ export default function Home() {
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }} className="mt-20">
             <div className="text-center mb-10">
               <h3 className="text-3xl md:text-4xl font-black font-display mb-3">
-                GoHighLevel vs. The Rest
+                HighLevel vs. The Rest
               </h3>
               <p className="text-muted-foreground text-lg max-w-xl mx-auto">
                 Why pay for 6 separate tools when one platform does everything — and you can sell it as your own?
@@ -476,7 +476,7 @@ export default function Home() {
                     <th className="px-6 py-5 text-center bg-primary/8 border-x border-primary/20 w-[17%]">
                       <div className="flex flex-col items-center gap-1">
                         <span className="text-xs font-bold tracking-widest uppercase text-primary">Venkat Uses</span>
-                        <span className="font-black text-base text-foreground font-display">GoHighLevel</span>
+                        <span className="font-black text-base text-foreground font-display">HighLevel</span>
                       </div>
                     </th>
                     {["HubSpot", "Mailchimp", "Clickfunnels", "Salesforce"].map((tool) => (
@@ -541,7 +541,7 @@ export default function Home() {
                     >
                       <td className="px-6 py-4 font-medium text-foreground">{row.feature}</td>
 
-                      {/* GoHighLevel column — highlighted */}
+                      {/* HighLevel column — highlighted */}
                       <td className="px-6 py-4 text-center bg-primary/5 border-x border-primary/15">
                         {typeof row.ghl === "boolean" ? (
                           row.ghl
@@ -572,7 +572,7 @@ export default function Home() {
 
             <div className="mt-8 text-center">
               <Button size="lg" className="h-13 px-10 text-base font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm" data-testid="button-try-ghl">
-                Try GoHighLevel Free Through Venkat's Link
+                Try HighLevel Free Through Venkat's Link
               </Button>
               <p className="text-sm text-muted-foreground mt-3">No credit card required for the trial. Cancel anytime.</p>
             </div>
@@ -616,7 +616,7 @@ export default function Home() {
               <div className="flex items-center gap-4">
                 <div className="text-muted-foreground line-through text-lg font-semibold">$799</div>
                 <div className="text-4xl font-black font-display text-primary">FREE</div>
-                <div className="text-sm text-muted-foreground">with GoHighLevel trial</div>
+                <div className="text-sm text-muted-foreground">with HighLevel trial</div>
               </div>
 
               <Button size="lg" className="mt-6 h-14 px-10 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto" data-testid="button-claim-course">
@@ -631,7 +631,7 @@ export default function Home() {
             >
               {[
                 { module: "Module 1", title: "Agency Foundation & Mindset", desc: "Set up your agency identity, niche selection, and the mindset that separates 6-figure operators from beginners." },
-                { module: "Module 2", title: "GoHighLevel Mastery", desc: "Full platform walkthrough — CRM, funnels, automations, and white-labeling your brand in hours." },
+                { module: "Module 2", title: "HighLevel Mastery", desc: "Full platform walkthrough — CRM, funnels, automations, and white-labeling your brand in hours." },
                 { module: "Module 3", title: "Your First Client in 14 Days", desc: "Proven outreach scripts, pricing strategy, and exactly how to close your first retainer." },
                 { module: "Module 4", title: "Scale to $10k/month", desc: "Systemize delivery, hire your first VA, and build recurring revenue that runs without you." },
                 { module: "Bonus", title: "AI Automation Workflows", desc: "Plug-and-play AI chatbots, lead follow-up sequences, and reputation management — all pre-built." },
@@ -674,7 +674,7 @@ export default function Home() {
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               This is the exact system I use to scale. Normally valued at{" "}
-              <span className="line-through opacity-50">$799</span>, you get it 100% FREE when you start a GoHighLevel trial through my partner link.
+              <span className="line-through opacity-50">$799</span>, you get it 100% FREE when you start a HighLevel trial through my partner link.
             </p>
             <Button size="lg" className="h-16 px-10 text-xl font-bold bg-primary text-primary-foreground hover:bg-primary/90 w-full md:w-auto" data-testid="button-claim-free-training">
               Claim Your Free Training Now
