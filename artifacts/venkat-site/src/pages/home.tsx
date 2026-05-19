@@ -551,6 +551,123 @@ export default function Home() {
         </div>
       </section>
 
+      {/* What You Get Section */}
+      <section className="py-24 md:py-32 px-6 bg-muted/20 border-y border-border/50">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
+            <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
+              Free With Your Trial
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black font-display mb-4">
+              Here's What{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">You Get</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              When you start your HighLevel trial through Venkat's link, you get his complete AI Agency Blueprint — normally{" "}
+              <span className="line-through text-muted-foreground/60">$799</span>{" "}
+              <span className="text-primary font-bold">100% FREE.</span>
+            </p>
+          </motion.div>
+
+          {/* Course modules list */}
+          <div className="grid md:grid-cols-2 gap-10 mb-16">
+            <motion.div {...fadeUp}>
+              <h3 className="text-lg font-black font-display mb-5 flex items-center gap-2">
+                <BookOpen size={18} className="text-primary" /> Here's what Venkat will cover:
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "#1 Business Setup: AI & Quick Wins",
+                  "#2 Agency Account Setup: White Label and SaaS",
+                  "#3 Launch & Scale Your Own Software (SaaS)",
+                  "#4 Launch & Scale Your AI Agency with Software (SwaS)",
+                  "#5 How to Get Clients: Powered by AI",
+                  "#6 Steps to Build a Semi-Passive Income Business",
+                  "Proven Systems & Venkat's Real Experience",
+                  "60+ Videos & Hours of Step-by-Step Content",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }}>
+              <h3 className="text-lg font-black font-display mb-5 flex items-center gap-2">
+                <Star size={18} className="text-secondary" /> Additional Bonuses Included:
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "Access to 1-on-1 Kickoff Call with Venkat's Team",
+                  "Access to Live Bootcamp (Real-Time Training)",
+                  "Access to Live Sales Calls & Client Onboarding",
+                  "How to Clone Yourself with AI (Venkat's New Strategy)",
+                  "Pre-Built Snapshots & Done-For-You Funnels",
+                  "Private Community of Students & Agency Owners",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 size={16} className="text-secondary shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* 3 Bonus Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                badge: "FREE BONUS #1",
+                title: "SaaS & SwaS Playbook",
+                desc: "The exact playbook Venkat uses to run a software + services agency. White-label HighLevel and sell it as your own product.",
+              },
+              {
+                badge: "FREE BONUS #2",
+                title: "Clone Yourself with AI Videos",
+                desc: "Venkat's personal strategy for using AI to create content, build authority, and grow your agency on YouTube without a camera crew.",
+              },
+              {
+                badge: "FREE BONUS #3",
+                title: "Live Bootcamp + Snapshots & Funnels",
+                desc: "Hands-on live training sessions plus pre-built HighLevel snapshots and funnel templates you can deploy for clients instantly.",
+              },
+            ].map((bonus, i) => (
+              <motion.div
+                key={bonus.badge}
+                {...stagger(i)}
+                className="bg-card border border-border/50 rounded-3xl p-6 flex flex-col gap-4 hover:border-primary/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300"
+              >
+                <div className="inline-block px-3 py-1 rounded-full bg-primary text-white text-xs font-black uppercase tracking-widest w-fit">
+                  {bonus.badge}
+                </div>
+                <h3 className="font-black font-display text-lg text-foreground">{bonus.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">{bonus.desc}</p>
+                <div className="aspect-video rounded-xl bg-muted/50 border border-border/40 flex items-center justify-center text-xs text-muted-foreground">
+                  [ Bonus Preview Image ]
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Value summary + CTA */}
+          <motion.div {...fadeUp} className="text-center">
+            <p className="text-muted-foreground text-sm mb-2 uppercase tracking-widest font-semibold">Total Value</p>
+            <p className="text-5xl font-black font-display text-foreground mb-1">
+              <span className="line-through text-muted-foreground/40 text-3xl mr-2">$799</span>
+              <span className="text-primary">FREE</span>
+            </p>
+            <p className="text-muted-foreground mb-8 text-sm">When you start your 30-day HighLevel trial through Venkat's link</p>
+            <Button size="lg" className="h-14 px-12 text-lg font-black bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg">
+              Get Started Today!
+            </Button>
+            <p className="text-xs text-muted-foreground mt-3">Start Free Trial. No Contracts. Cancel Anytime.</p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Course Section */}
       <section id="course" className="py-24 md:py-32 px-6 bg-muted/30 border-y border-border/50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px]" />
