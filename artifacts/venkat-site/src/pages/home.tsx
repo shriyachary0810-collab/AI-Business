@@ -193,22 +193,34 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary w-fit text-sm font-semibold tracking-wide">
               <Zap size={14} className="fill-secondary" />
-              No Experience. No Code.
+              No Experience. No Code. No Tech Skills Required.
             </div>
             <h1 className="text-5xl md:text-7xl font-black font-display leading-[1.1] tracking-tight">
               Start an AI Business in{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">2026.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-md font-light leading-relaxed">
-              I'm Venkat. I build 7-figure businesses. Now, I'm giving you the exact blueprint to launch your own AI or software agency in 30 days.
+              How I built a 7-figure software business using GoHighLevel — and how you can launch your own AI agency in 30 days, even as a complete beginner.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button size="lg" className="h-14 px-8 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90" data-testid="button-start-training">
-                Start Free Training
+            <ul className="space-y-2 pt-1">
+              {[
+                "Get my complete AI Agency Blueprint (normally $799) — FREE",
+                "Launch your own white-label software business",
+                "Start making money in 30 days or less",
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <CheckCircle2 size={15} className="text-primary shrink-0 mt-0.5" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-3 pt-2">
+              <Button size="lg" className="h-14 px-8 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 w-fit" data-testid="button-free-trial">
+                Get 30-Day Free Trial
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-border hover:bg-muted" data-testid="button-see-results">
-                See Results
-              </Button>
+              <p className="text-xs text-muted-foreground">
+                No credit card required. Free training included when you sign up through Venkat's link.
+              </p>
             </div>
           </motion.div>
 
