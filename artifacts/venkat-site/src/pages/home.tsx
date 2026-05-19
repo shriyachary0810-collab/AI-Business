@@ -1057,8 +1057,6 @@ export default function Home() {
         </div>
       </section>
 
-      <CaseStudySection />
-
       {/* ── REVIEWS ── */}
       <section id="reviews" className="py-24 md:py-32 px-6 bg-gray-50 border-y border-gray-100">
         <div className="container mx-auto max-w-6xl">
@@ -1138,6 +1136,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <CaseStudySection />
 
       {/* ── FOOTER ── */}
       <footer className="border-t border-gray-200 bg-gray-50">
