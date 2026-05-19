@@ -398,6 +398,130 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+
+          {/* Comparison Table */}
+          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }} className="mt-20">
+            <div className="text-center mb-10">
+              <h3 className="text-3xl md:text-4xl font-black font-display mb-3">
+                GoHighLevel vs. The Rest
+              </h3>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                Why pay for 6 separate tools when one platform does everything — and you can sell it as your own?
+              </p>
+            </div>
+
+            <div className="overflow-x-auto rounded-3xl border border-border shadow-sm">
+              <table className="w-full text-sm" data-testid="software-comparison-table">
+                {/* Header */}
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left px-6 py-5 font-semibold text-muted-foreground bg-muted/40 w-[30%]">
+                      Feature
+                    </th>
+                    <th className="px-6 py-5 text-center bg-primary/8 border-x border-primary/20 w-[17%]">
+                      <div className="flex flex-col items-center gap-1">
+                        <span className="text-xs font-bold tracking-widest uppercase text-primary">Venkat Uses</span>
+                        <span className="font-black text-base text-foreground font-display">GoHighLevel</span>
+                      </div>
+                    </th>
+                    {["HubSpot", "Mailchimp", "Clickfunnels", "Salesforce"].map((tool) => (
+                      <th key={tool} className="px-4 py-5 text-center font-semibold text-muted-foreground bg-muted/40 w-[13%]">
+                        {tool}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {[
+                    {
+                      feature: "CRM & Pipeline Management",
+                      ghl: true, hubspot: true, mailchimp: false, clickfunnels: false, salesforce: true,
+                    },
+                    {
+                      feature: "Email Marketing & Automation",
+                      ghl: true, hubspot: true, mailchimp: true, clickfunnels: false, salesforce: true,
+                    },
+                    {
+                      feature: "SMS & Text Marketing",
+                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
+                    },
+                    {
+                      feature: "Funnel & Landing Page Builder",
+                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: true, salesforce: false,
+                    },
+                    {
+                      feature: "Appointment Booking & Calendar",
+                      ghl: true, hubspot: true, mailchimp: false, clickfunnels: false, salesforce: false,
+                    },
+                    {
+                      feature: "Website & Blog Builder",
+                      ghl: true, hubspot: true, mailchimp: true, clickfunnels: true, salesforce: false,
+                    },
+                    {
+                      feature: "AI Chatbot & Automation",
+                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
+                    },
+                    {
+                      feature: "Reputation / Review Management",
+                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
+                    },
+                    {
+                      feature: "White-Label & Resell as SaaS",
+                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
+                    },
+                    {
+                      feature: "Unlimited Client Sub-Accounts",
+                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
+                    },
+                    {
+                      feature: "Monthly Cost (entry plan)",
+                      ghl: "$97", hubspot: "$800+", mailchimp: "$299+", clickfunnels: "$127+", salesforce: "$1,000+",
+                    },
+                  ].map((row, i) => (
+                    <tr
+                      key={row.feature}
+                      className={`border-b border-border/60 last:border-0 transition-colors hover:bg-muted/30 ${i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
+                      data-testid={`comparison-row-${i}`}
+                    >
+                      <td className="px-6 py-4 font-medium text-foreground">{row.feature}</td>
+
+                      {/* GoHighLevel column — highlighted */}
+                      <td className="px-6 py-4 text-center bg-primary/5 border-x border-primary/15">
+                        {typeof row.ghl === "boolean" ? (
+                          row.ghl
+                            ? <CheckCircle2 size={18} className="text-primary mx-auto" />
+                            : <span className="text-muted-foreground/40 font-bold text-lg leading-none">—</span>
+                        ) : (
+                          <span className="font-black text-primary text-sm">{row.ghl}</span>
+                        )}
+                      </td>
+
+                      {/* Competitors */}
+                      {([row.hubspot, row.mailchimp, row.clickfunnels, row.salesforce] as (boolean | string)[]).map((val, j) => (
+                        <td key={j} className="px-4 py-4 text-center">
+                          {typeof val === "boolean" ? (
+                            val
+                              ? <CheckCircle2 size={16} className="text-muted-foreground/50 mx-auto" />
+                              : <span className="text-muted-foreground/30 font-bold text-lg leading-none">—</span>
+                          ) : (
+                            <span className="text-muted-foreground text-sm font-semibold">{val}</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Button size="lg" className="h-13 px-10 text-base font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm" data-testid="button-try-ghl">
+                Try GoHighLevel Free Through Venkat's Link
+              </Button>
+              <p className="text-sm text-muted-foreground mt-3">No credit card required for the trial. Cancel anytime.</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
