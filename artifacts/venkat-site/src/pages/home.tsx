@@ -470,15 +470,21 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Right — hero image */}
+          {/* Right — hero video */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] w-full rounded-3xl overflow-hidden shadow-xl">
-              <img src={officeManImg} alt="Venkat" className="w-full h-full object-cover object-top" />
+            <div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-xl">
+              <iframe
+                src="https://www.youtube.com/embed/Dp2TSSisAZM?rel=0&modestbranding=1"
+                title="Start an AI Business in 2026"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
             </div>
           </motion.div>
         </div>
@@ -610,17 +616,19 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Video — paste your YouTube embed src below */}
+          {/* What is HighLevel video */}
           <motion.div
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative aspect-video w-full rounded-3xl overflow-hidden border-2 border-dashed border-primary/20 bg-gray-50 shadow-sm flex flex-col items-center justify-center gap-3 mb-14 group cursor-pointer hover:border-primary/40 transition-colors"
+            className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-lg mb-14"
           >
-            <div className="w-20 h-20 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary transition-all duration-300">
-              <Play className="w-9 h-9 ml-1.5 text-primary group-hover:text-white" />
-            </div>
-            <p className="font-bold text-[#0a0a0a] text-lg">[ Add Your HighLevel Video Here ]</p>
-            <p className="text-sm text-gray-400">Paste your YouTube embed link to display the video</p>
+            <iframe
+              src="https://www.youtube.com/embed/AyLFBsCNSFI?rel=0&modestbranding=1"
+              title="What is HighLevel?"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full border-0"
+            />
           </motion.div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
