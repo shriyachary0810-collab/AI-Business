@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Venkat - Personal Site"
+version = "1.0.0"
+id = "artifacts/venkat-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18356
+
+[services.development]
+run = "pnpm --filter @workspace/venkat-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/venkat-site", "run", "build" ]
+publicDir = "artifacts/venkat-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18356"
+BASE_PATH = "/"
