@@ -512,63 +512,38 @@ export default function Home() {
           {/* Tools being replaced */}
           <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="mt-10">
             <p className="text-center text-sm text-muted-foreground mb-6 font-medium uppercase tracking-widest">HighLevel replaces all of these:</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {/* HubSpot */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <SiHubspot size={20} color="#FF7A59" />
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">HubSpot</div>
-                  <div className="text-muted-foreground text-xs">$800+/mo</div>
+            <div className="rounded-3xl border border-border overflow-hidden shadow-sm">
+              {[
+                { logo: <SiHubspot size={22} color="#FF7A59" />, name: "HubSpot",       desc: "CRM & email marketing",         price: "$800+/mo" },
+                { logo: <SiMailchimp size={22} color="#F2C94C" />, name: "Mailchimp",   desc: "Email campaigns & lists",       price: "$299+/mo" },
+                { logo: <SiSalesforce size={22} color="#00A1E0" />, name: "Salesforce", desc: "Enterprise CRM & pipeline",     price: "$1,000+/mo" },
+                { logo: <SiCalendly size={22} color="#006BFF" />, name: "Calendly",     desc: "Appointment scheduling",        price: "$20+/mo" },
+                {
+                  logo: <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#E8593C" }}>CF</div>,
+                  name: "Clickfunnels", desc: "Sales funnels & pages",          price: "$127+/mo",
+                },
+                {
+                  logo: <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#7B5CF0" }}>K</div>,
+                  name: "Kajabi",       desc: "Courses & memberships",          price: "$119+/mo",
+                },
+                {
+                  logo: <div className="w-6 h-6 rounded flex items-center justify-center text-white text-[10px] font-black" style={{ background: "#1DA462" }}>BE</div>,
+                  name: "Birdeye",      desc: "Review & reputation management", price: "$299+/mo",
+                },
+              ].map((tool, i) => (
+                <div
+                  key={tool.name}
+                  className={`flex items-center gap-4 px-5 py-3.5 border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors ${i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
+                >
+                  <div className="shrink-0 w-7 flex items-center justify-center">{tool.logo}</div>
+                  <div className="flex-1 min-w-0">
+                    <span className="font-semibold text-foreground text-sm">{tool.name}</span>
+                    <span className="text-muted-foreground text-xs ml-2 hidden sm:inline">{tool.desc}</span>
+                  </div>
+                  <div className="shrink-0 text-sm font-bold text-red-400">{tool.price}</div>
+                  <div className="shrink-0 text-xs text-muted-foreground line-through hidden md:block">per month</div>
                 </div>
-              </div>
-              {/* Mailchimp */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <SiMailchimp size={20} color="#FFE01B" className="[filter:drop-shadow(0_0_1px_#aaa)]" />
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">Mailchimp</div>
-                  <div className="text-muted-foreground text-xs">$299+/mo</div>
-                </div>
-              </div>
-              {/* Salesforce */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <SiSalesforce size={20} color="#00A1E0" />
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">Salesforce</div>
-                  <div className="text-muted-foreground text-xs">$1,000+/mo</div>
-                </div>
-              </div>
-              {/* Calendly */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <SiCalendly size={20} color="#006BFF" />
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">Calendly</div>
-                  <div className="text-muted-foreground text-xs">$20+/mo</div>
-                </div>
-              </div>
-              {/* Clickfunnels — initial badge */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <div className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-black" style={{ background: "#E8593C" }}>CF</div>
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">Clickfunnels</div>
-                  <div className="text-muted-foreground text-xs">$127+/mo</div>
-                </div>
-              </div>
-              {/* Kajabi — initial badge */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <div className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-black" style={{ background: "#7B5CF0" }}>K</div>
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">Kajabi</div>
-                  <div className="text-muted-foreground text-xs">$119+/mo</div>
-                </div>
-              </div>
-              {/* Birdeye — initial badge */}
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-card border border-border/60 shadow-sm hover:border-border transition-colors">
-                <div className="w-5 h-5 rounded-md flex items-center justify-center text-white text-xs font-black" style={{ background: "#1DA462" }}>BE</div>
-                <div>
-                  <div className="font-semibold text-foreground text-sm leading-tight">Birdeye</div>
-                  <div className="text-muted-foreground text-xs">$299+/mo</div>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
 
