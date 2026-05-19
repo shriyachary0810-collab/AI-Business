@@ -409,173 +409,105 @@ export default function Home() {
       {/* Software Section */}
       <section id="software" className="py-24 md:py-32 px-6 relative">
         <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
-        <div className="container mx-auto max-w-6xl">
-          <motion.div {...fadeUp} className="text-center mb-16">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div {...fadeUp} className="text-center mb-14">
             <div className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-5">
               The Software
             </div>
             <h2 className="text-4xl md:text-5xl font-black font-display mb-4">
-              One Platform. Everything You Need.
+              Replace 7+ Tools With One
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Venkat built his 7-figure agency on HighLevel. You get access to the same all-in-one software — white-labeled as your own brand.
+              HighLevel is the all-in-one platform Venkat uses to run his entire 7-figure agency — and you can white-label it as your own software business.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {software.map((item, i) => (
-              <motion.div
-                key={item.name}
-                {...stagger(i)}
-                className="relative bg-card border border-border/50 rounded-3xl p-8 flex flex-col gap-5 hover:border-primary/40 transition-all duration-300 group"
-                data-testid={`software-card-${item.name.replace(/\s/g, "-").toLowerCase()}`}
-              >
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary relative z-10">
-                  <item.icon size={22} />
+          {/* Two-column comparison table */}
+          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.1 }}>
+            <div className="overflow-hidden rounded-3xl border border-border shadow-sm" data-testid="software-comparison-table">
+              {/* Header */}
+              <div className="grid grid-cols-3 border-b border-border bg-muted/40">
+                <div className="px-6 py-5 font-semibold text-muted-foreground text-sm">Feature</div>
+                <div className="px-6 py-5 text-center bg-primary/10 border-x border-primary/25">
+                  <div className="text-xs font-bold tracking-widest uppercase text-primary mb-0.5">Venkat Uses</div>
+                  <div className="font-black text-base text-foreground font-display">HighLevel</div>
                 </div>
-                <div className="relative z-10">
-                  <div className="text-xs font-bold tracking-widest uppercase text-primary mb-1">{item.tag}</div>
-                  <h3 className="text-xl font-black font-display mb-2">{item.name}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                <div className="px-6 py-5 text-center font-semibold text-muted-foreground text-sm">Other Tools</div>
+              </div>
+
+              {/* Rows */}
+              {[
+                { feature: "CRM & Pipeline Management",         ghl: true,  others: false },
+                { feature: "Email Marketing & Automation",      ghl: true,  others: true  },
+                { feature: "SMS & Text Marketing",              ghl: true,  others: false },
+                { feature: "Funnel & Landing Page Builder",     ghl: true,  others: false },
+                { feature: "Appointment Booking & Calendar",    ghl: true,  others: false },
+                { feature: "Website & Blog Builder",            ghl: true,  others: false },
+                { feature: "AI Chatbot & Conversations",        ghl: true,  others: false },
+                { feature: "Reputation & Review Management",    ghl: true,  others: false },
+                { feature: "White-Label & Resell as SaaS",      ghl: true,  others: false },
+                { feature: "Unlimited Client Sub-Accounts",     ghl: true,  others: false },
+                { feature: "Courses & Membership Sites",        ghl: true,  others: false },
+              ].map((row, i) => (
+                <div
+                  key={row.feature}
+                  className={`grid grid-cols-3 border-b border-border/50 last:border-0 hover:bg-muted/20 transition-colors ${i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
+                  data-testid={`comparison-row-${i}`}
+                >
+                  <div className="px-6 py-4 font-medium text-foreground text-sm flex items-center">{row.feature}</div>
+                  <div className="px-6 py-4 flex items-center justify-center bg-primary/5 border-x border-primary/15">
+                    <CheckCircle2 size={20} className="text-primary" />
+                  </div>
+                  <div className="px-6 py-4 flex items-center justify-center">
+                    {row.others
+                      ? <CheckCircle2 size={18} className="text-muted-foreground/40" />
+                      : <span className="text-red-400 font-bold text-xl leading-none">✕</span>
+                    }
+                  </div>
                 </div>
-                <ul className="space-y-2 relative z-10 flex-1">
-                  {item.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 size={14} className="text-primary shrink-0 mt-0.5" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="outline" size="sm" className="w-full border-border hover:border-primary hover:text-primary transition-colors relative z-10" data-testid={`button-${item.cta.replace(/\s/g, "-").toLowerCase()}`}>
-                  {item.cta}
-                </Button>
-              </motion.div>
-            ))}
-          </div>
+              ))}
 
-          {/* Comparison Table */}
-          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.2 }} className="mt-20">
-            <div className="text-center mb-10">
-              <h3 className="text-3xl md:text-4xl font-black font-display mb-3">
-                HighLevel vs. The Rest
-              </h3>
-              <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                Why pay for 6 separate tools when one platform does everything — and you can sell it as your own?
-              </p>
+              {/* Pricing row */}
+              <div className="grid grid-cols-3 border-t-2 border-border bg-muted/30">
+                <div className="px-6 py-5 font-bold text-foreground text-sm flex items-center">Monthly Cost</div>
+                <div className="px-6 py-5 flex flex-col items-center justify-center bg-primary/10 border-x border-primary/25">
+                  <span className="font-black text-2xl text-primary font-display">$97</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">all-in-one</span>
+                </div>
+                <div className="px-6 py-5 flex flex-col items-center justify-center">
+                  <span className="font-black text-2xl text-red-400 font-display">$2,000+</span>
+                  <span className="text-xs text-muted-foreground mt-0.5">across 7+ tools</span>
+                </div>
+              </div>
             </div>
+          </motion.div>
 
-            <div className="overflow-x-auto rounded-3xl border border-border shadow-sm">
-              <table className="w-full text-sm" data-testid="software-comparison-table">
-                {/* Header */}
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left px-6 py-5 font-semibold text-muted-foreground bg-muted/40 w-[30%]">
-                      Feature
-                    </th>
-                    <th className="px-6 py-5 text-center bg-primary/8 border-x border-primary/20 w-[17%]">
-                      <div className="flex flex-col items-center gap-1">
-                        <span className="text-xs font-bold tracking-widest uppercase text-primary">Venkat Uses</span>
-                        <span className="font-black text-base text-foreground font-display">HighLevel</span>
-                      </div>
-                    </th>
-                    {["HubSpot", "Mailchimp", "Clickfunnels", "Salesforce"].map((tool) => (
-                      <th key={tool} className="px-4 py-5 text-center font-semibold text-muted-foreground bg-muted/40 w-[13%]">
-                        {tool}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {[
-                    {
-                      feature: "CRM & Pipeline Management",
-                      ghl: true, hubspot: true, mailchimp: false, clickfunnels: false, salesforce: true,
-                    },
-                    {
-                      feature: "Email Marketing & Automation",
-                      ghl: true, hubspot: true, mailchimp: true, clickfunnels: false, salesforce: true,
-                    },
-                    {
-                      feature: "SMS & Text Marketing",
-                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
-                    },
-                    {
-                      feature: "Funnel & Landing Page Builder",
-                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: true, salesforce: false,
-                    },
-                    {
-                      feature: "Appointment Booking & Calendar",
-                      ghl: true, hubspot: true, mailchimp: false, clickfunnels: false, salesforce: false,
-                    },
-                    {
-                      feature: "Website & Blog Builder",
-                      ghl: true, hubspot: true, mailchimp: true, clickfunnels: true, salesforce: false,
-                    },
-                    {
-                      feature: "AI Chatbot & Automation",
-                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
-                    },
-                    {
-                      feature: "Reputation / Review Management",
-                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
-                    },
-                    {
-                      feature: "White-Label & Resell as SaaS",
-                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
-                    },
-                    {
-                      feature: "Unlimited Client Sub-Accounts",
-                      ghl: true, hubspot: false, mailchimp: false, clickfunnels: false, salesforce: false,
-                    },
-                    {
-                      feature: "Monthly Cost (entry plan)",
-                      ghl: "$97", hubspot: "$800+", mailchimp: "$299+", clickfunnels: "$127+", salesforce: "$1,000+",
-                    },
-                  ].map((row, i) => (
-                    <tr
-                      key={row.feature}
-                      className={`border-b border-border/60 last:border-0 transition-colors hover:bg-muted/30 ${i % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
-                      data-testid={`comparison-row-${i}`}
-                    >
-                      <td className="px-6 py-4 font-medium text-foreground">{row.feature}</td>
-
-                      {/* HighLevel column — highlighted */}
-                      <td className="px-6 py-4 text-center bg-primary/5 border-x border-primary/15">
-                        {typeof row.ghl === "boolean" ? (
-                          row.ghl
-                            ? <CheckCircle2 size={18} className="text-primary mx-auto" />
-                            : <span className="text-muted-foreground/40 font-bold text-lg leading-none">—</span>
-                        ) : (
-                          <span className="font-black text-primary text-sm">{row.ghl}</span>
-                        )}
-                      </td>
-
-                      {/* Competitors */}
-                      {([row.hubspot, row.mailchimp, row.clickfunnels, row.salesforce] as (boolean | string)[]).map((val, j) => (
-                        <td key={j} className="px-4 py-4 text-center">
-                          {typeof val === "boolean" ? (
-                            val
-                              ? <CheckCircle2 size={16} className="text-muted-foreground/50 mx-auto" />
-                              : <span className="text-muted-foreground/30 font-bold text-lg leading-none">—</span>
-                          ) : (
-                            <span className="text-muted-foreground text-sm font-semibold">{val}</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          {/* Tools being replaced */}
+          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.2 }} className="mt-10">
+            <p className="text-center text-sm text-muted-foreground mb-5 font-medium uppercase tracking-widest">HighLevel replaces all of these:</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { name: "HubSpot", price: "$800+/mo" },
+                { name: "Clickfunnels", price: "$127+/mo" },
+                { name: "Mailchimp", price: "$299+/mo" },
+                { name: "Calendly", price: "$20+/mo" },
+                { name: "Salesforce", price: "$1,000+/mo" },
+                { name: "Kajabi", price: "$119+/mo" },
+                { name: "Birdeye", price: "$299+/mo" },
+              ].map((tool) => (
+                <div key={tool.name} className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/60 text-sm">
+                  <span className="font-semibold text-foreground">{tool.name}</span>
+                  <span className="text-muted-foreground text-xs">{tool.price}</span>
+                </div>
+              ))}
             </div>
+          </motion.div>
 
-            <div className="mt-8 text-center">
-              <Button size="lg" className="h-13 px-10 text-base font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm" data-testid="button-try-ghl">
-                Try HighLevel Free Through Venkat's Link
-              </Button>
-              <p className="text-sm text-muted-foreground mt-3">No credit card required for the trial. Cancel anytime.</p>
-            </div>
+          <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.25 }} className="mt-10 text-center">
+            <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm" data-testid="button-try-ghl">
+              Try HighLevel Free — 30 Days
+            </Button>
+            <p className="text-sm text-muted-foreground mt-3">No credit card required. Free training included through Venkat's link.</p>
           </motion.div>
         </div>
       </section>
