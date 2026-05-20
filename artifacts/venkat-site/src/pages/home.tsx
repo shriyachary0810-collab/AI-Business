@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart3, Megaphone, BookOpen, MessageSquare, Calendar, Briefcase, Clock, Laptop, GraduationCap, Store, Rocket } from "lucide-react";
-import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
+import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio, SiWhatsapp } from "react-icons/si";
 import { Linkedin } from "lucide-react";
 import officeManImg from "@assets/smiling-indian-man-working-laptop_1779188973563.avif";
 
@@ -17,6 +17,7 @@ import meenaImg from "@assets/meena_1779188007766.jpg";
 import divyaImg from "@assets/rupa_1779188013426.jpg";
 
 const HL_LINK = "https://www.gohighlevel.com/";
+const WA_LINK = "https://wa.me/919999999999?text=Hi%20Venkat!%20I%20want%20to%20learn%20more%20about%20starting%20an%20AI%20business.";
 
 function useCountdown(targetDate: Date) {
   const calc = () => {
@@ -398,6 +399,26 @@ export default function Home() {
     <div className="min-h-screen bg-white text-[#0a0a0a] overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
 
       <SocialProofPopup />
+
+      {/* Floating WhatsApp button */}
+      <motion.a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 2, type: "spring", stiffness: 260, damping: 20 }}
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-[#25D366] text-white rounded-full shadow-2xl px-4 py-3 group"
+        style={{ boxShadow: "0 8px 32px rgba(37,211,102,0.45)" }}
+      >
+        <SiWhatsapp size={26} className="shrink-0" />
+        <span className="text-sm font-bold pr-1 max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap">
+          Chat with Venkat
+        </span>
+      </motion.a>
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
