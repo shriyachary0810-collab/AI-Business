@@ -5,6 +5,7 @@ import { Play, Users, Award, Zap, Star, ChevronDown, CheckCircle2, Bot, BarChart
 import { SiYoutube, SiInstagram, SiThreads, SiHubspot, SiMailchimp, SiSalesforce, SiCalendly, SiWix, SiWordpress, SiTypeform, SiZapier, SiTwilio } from "react-icons/si";
 import { Linkedin } from "lucide-react";
 import officeManImg from "@assets/smiling-indian-man-working-laptop_1779188973563.avif";
+
 import saasImg from "@assets/saas_1779185549378.jpg";
 import cloneImg from "@assets/clone_1779185556620.jpg";
 import bootcampImg from "@assets/bootcamp_1779185564292.jpg";
@@ -14,6 +15,8 @@ import sureshImg from "@assets/rahul_1779187996480.jpg";
 import priyaImg from "@assets/pooja_1779188002726.jpg";
 import meenaImg from "@assets/meena_1779188007766.jpg";
 import divyaImg from "@assets/rupa_1779188013426.jpg";
+
+const HL_LINK = "https://www.gohighlevel.com/";
 
 function useCountdown(targetDate: Date) {
   const calc = () => {
@@ -94,15 +97,14 @@ function SocialProofPopup() {
   }, []);
 
   useEffect(() => {
-    if (!visible) {
-      const next = setTimeout(() => {
-        const nextIdx = (current + 1) % socialProofEntries.length;
-        setCurrent(nextIdx);
-        setVisible(true);
-        setTimeout(() => setVisible(false), 4500);
-      }, 6000);
-      return () => clearTimeout(next);
-    }
+    if (visible) return;
+    const next = setTimeout(() => {
+      const nextIdx = (current + 1) % socialProofEntries.length;
+      setCurrent(nextIdx);
+      setVisible(true);
+      setTimeout(() => setVisible(false), 4500);
+    }, 6000);
+    return () => clearTimeout(next);
   }, [visible, current]);
 
   const entry = socialProofEntries[current];
@@ -274,12 +276,12 @@ const fadeUp = {
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: "easeOut" },
+  transition: { duration: 0.55, ease: "easeOut" as const },
 };
 
 const stagger = (i: number) => ({
   ...fadeUp,
-  transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+  transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
 });
 
 function FAQItem({ q, a }: { q: string; a: string }) {
@@ -414,9 +416,11 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <Button className="font-bold bg-primary text-white hover:bg-primary/90 shadow-sm px-6">
-            Get Started
-          </Button>
+          <a href={HL_LINK} target="_blank" rel="noopener noreferrer">
+            <Button className="font-bold bg-primary text-white hover:bg-primary/90 shadow-sm px-6">
+              Get Started
+            </Button>
+          </a>
         </div>
       </nav>
 
@@ -461,9 +465,11 @@ export default function Home() {
             </ul>
 
             <div className="flex flex-col gap-3 pt-2">
-              <Button size="lg" className="h-14 px-8 text-lg font-bold bg-primary text-white hover:bg-primary/90 w-fit shadow-lg">
-                Get 30-Day Free Trial
-              </Button>
+              <a href={HL_LINK} target="_blank" rel="noopener noreferrer" className="w-fit">
+                <Button size="lg" className="h-14 px-8 text-lg font-bold bg-primary text-white hover:bg-primary/90 w-fit shadow-lg">
+                  Get 30-Day Free Trial
+                </Button>
+              </a>
               <p className="text-xs text-gray-500">
                 No credit card required. Free training included when you sign up through Venkat's link.
               </p>
@@ -657,9 +663,11 @@ export default function Home() {
           </div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }} className="text-center mt-12">
-            <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-md">
-              Get 30-Day Free Trial
-            </Button>
+            <a href={HL_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-md">
+                Get 30-Day Free Trial
+              </Button>
+            </a>
             <p className="text-xs text-gray-400 mt-3">Free training included when you sign up through Venkat's link.</p>
           </motion.div>
         </div>
@@ -799,9 +807,11 @@ export default function Home() {
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.25 }} className="mt-10 text-center">
-            <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-md">
-              Try HighLevel Free — 30 Days
-            </Button>
+            <a href={HL_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-md">
+                Try HighLevel Free — 30 Days
+              </Button>
+            </a>
             <p className="text-sm text-gray-400 mt-3">No credit card required. Free training included through Venkat's link.</p>
           </motion.div>
         </div>
@@ -920,9 +930,11 @@ export default function Home() {
               <span className="text-primary">FREE</span>
             </p>
             <p className="text-gray-400 mb-8 text-sm">When you start your 30-day HighLevel trial through Venkat's link</p>
-            <Button size="lg" className="h-14 px-12 text-lg font-black bg-primary text-white hover:bg-primary/90 shadow-lg">
-              Get Started Today!
-            </Button>
+            <a href={HL_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="h-14 px-12 text-lg font-black bg-primary text-white hover:bg-primary/90 shadow-lg">
+                Get Started Today!
+              </Button>
+            </a>
             <p className="text-xs text-gray-400 mt-3">Start Free Trial. No Contracts. Cancel Anytime.</p>
           </motion.div>
         </div>
@@ -1036,9 +1048,11 @@ export default function Home() {
                 <p className="text-xs text-gray-400 text-center">When you start your 30-day HighLevel trial through Venkat's link</p>
               </div>
 
-              <Button size="lg" className="h-14 w-full text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-lg">
-                Claim Free Access Now →
-              </Button>
+              <a href={HL_LINK} target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button size="lg" className="h-14 w-full text-lg font-bold bg-primary text-white hover:bg-primary/90 shadow-lg">
+                  Claim Free Access Now →
+                </Button>
+              </a>
               <p className="text-xs text-gray-400 text-center -mt-3">No credit card required. Start Free. Cancel Anytime.</p>
 
             </motion.div>
@@ -1065,9 +1079,11 @@ export default function Home() {
               This offer expires in:
             </p>
             <CountdownTimer />
-            <Button size="lg" className="h-16 px-12 text-xl font-bold bg-white text-primary hover:bg-gray-100 shadow-xl w-full md:w-auto">
-              Claim Your Free Training Now
-            </Button>
+            <a href={HL_LINK} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto inline-block">
+              <Button size="lg" className="h-16 px-12 text-xl font-bold bg-white text-primary hover:bg-gray-100 shadow-xl w-full md:w-auto">
+                Claim Your Free Training Now
+              </Button>
+            </a>
             <p className="text-sm text-white/60 mt-6">
               Step-by-step videos. Done-for-you templates. Private community access.
             </p>
