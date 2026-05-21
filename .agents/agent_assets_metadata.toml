@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "PdJuRxO3OVIatmLq8FMkH"
+uri = "file://venkat-site.tar.gz"
+type = "unspecified"
+title = "Venkat Website — HTML/CSS (Download)"

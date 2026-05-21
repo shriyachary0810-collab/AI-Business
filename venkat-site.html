@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venkat – Start an AI Business in 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: rgba(37,99,235,0.08);
+      --primary-border: rgba(37,99,235,0.2);
+      --dark: #0a0a0a;
+      --gray-600: #4b5563;
+      --gray-500: #6b7280;
+      --gray-400: #9ca3af;
+      --gray-200: #e5e7eb;
+      --gray-100: #f3f4f6;
+      --gray-50: #f9fafb;
+      --white: #ffffff;
+      --green: #16a34a;
+      --red-500: #ef4444;
+      --wa-green: #25D366;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Syne', sans-serif; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .container-xs { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: scale(.97); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(37,99,235,.35);
+    }
+    .btn-primary:hover { background: var(--primary-hover); box-shadow: 0 6px 24px rgba(37,99,235,.45); }
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 4px 18px rgba(0,0,0,.15);
+    }
+    .btn-white:hover { background: var(--gray-100); }
+    .btn-sm  { padding: 10px 22px; font-size: 14px; border-radius: 10px; }
+    .btn-md  { padding: 14px 28px; font-size: 15px; }
+    .btn-lg  { padding: 16px 36px; font-size: 17px; border-radius: 14px; }
+    .btn-xl  { padding: 20px 48px; font-size: 19px; border-radius: 16px; }
+    .btn-full { width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 1px 8px rgba(0,0,0,.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -.04em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 148px 24px 96px;
+      background: #fff;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-tag svg { fill: var(--primary); }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 5.5vw, 62px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      color: var(--dark);
+      margin-bottom: 22px;
+    }
+    h1 .accent { color: var(--primary); }
+    .hero-desc {
+      font-size: 18px;
+      color: var(--gray-600);
+      line-height: 1.65;
+      max-width: 440px;
+      margin-bottom: 24px;
+    }
+    .check-list { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+    .check-list li svg { color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+    .hero-note { font-size: 11px; color: var(--gray-500); margin-top: 8px; }
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.13);
+    }
+    .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 88px 24px; }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    h2 .accent { color: var(--primary); }
+    .section-sub {
+      font-size: 18px;
+      color: var(--gray-500);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .text-center { text-align: center; }
+    .section-header { margin-bottom: 52px; }
+
+    /* ── WHO IS THIS FOR ── */
+    #for {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) { .card-grid-3 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .card-grid-3 { grid-template-columns: 1fr; } }
+    .icon-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .icon-card:hover { border-color: rgba(37,99,235,.35); box-shadow: 0 6px 24px rgba(37,99,235,.08); }
+    .icon-box {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      transition: background .2s;
+    }
+    .icon-card:hover .icon-box { background: var(--primary); color: #fff; }
+    .icon-card h3 { font-size: 14px; font-weight: 900; color: var(--dark); margin-bottom: 4px; }
+    .icon-card p { font-size: 12px; color: var(--gray-500); line-height: 1.55; }
+
+    /* ── ABOUT ── */
+    #about { background: #fff; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text p { font-size: 15px; color: var(--gray-600); line-height: 1.75; margin-bottom: 18px; }
+    .about-text strong { color: var(--dark); font-weight: 700; }
+    .about-points { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+    .about-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--gray-600); }
+    .about-photo {
+      aspect-ratio: 3/4;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,.12);
+      background: linear-gradient(145deg, #dbeafe, #eff6ff);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .about-photo-placeholder { font-family: 'Syne', sans-serif; font-size: 80px; font-weight: 900; color: var(--primary); opacity: .3; }
+
+    /* ── HIGHLEVEL ── */
+    #highlevel {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 40px 0 32px;
+    }
+    @media (max-width: 900px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 16px; padding: 18px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .feature-card:hover { border-color: rgba(37,99,235,.35); box-shadow: 0 4px 16px rgba(37,99,235,.07); }
+    .feat-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 10px; background: var(--primary-light);
+      display: flex; align-items: center; justify-content: center; color: var(--primary);
+    }
+    .feature-card h4 { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .feature-card p { font-size: 11px; color: var(--gray-500); line-height: 1.55; }
+
+    /* ── COMPARISON TABLE ── */
+    #software { background: #fff; }
+    .table-wrap { overflow-x: auto; border-radius: 20px; border: 1px solid var(--gray-200); box-shadow: 0 4px 24px rgba(0,0,0,.07); }
+    table { width: 100%; min-width: 540px; border-collapse: collapse; font-size: 13px; }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 14px 18px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    thead th:not(:first-child) { text-align: center; }
+    tbody tr { border-bottom: 1px solid var(--gray-100); transition: background .15s; }
+    tbody tr:last-child { border-bottom: 0; }
+    tbody tr:hover { background: rgba(37,99,235,.03); }
+    tbody tr:nth-child(even) { background: rgba(37,99,235,.02); }
+    tbody td { padding: 13px 18px; color: var(--dark); font-weight: 600; }
+    tbody td:not(:first-child) { text-align: center; color: var(--gray-500); font-weight: 500; }
+    tbody td.hl-check { background: rgba(37,99,235,.05); }
+    tbody td.hl-check span { color: var(--primary); font-size: 18px; font-weight: 900; }
+    tfoot tr { border-top: 2px solid rgba(37,99,235,.15); background: var(--gray-50); }
+    tfoot td { padding: 14px 18px; font-weight: 900; font-size: 14px; }
+    tfoot td:nth-child(2) { text-align: center; color: var(--red-500); }
+    tfoot td:nth-child(3) { text-align: center; }
+    .hl-price { display: inline-block; background: var(--primary); color: #fff; font-weight: 900; padding: 6px 14px; border-radius: 8px; font-size: 14px; }
+
+    /* ── WHAT YOU GET ── */
+    #get { background: var(--gray-50); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+    .get-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 56px; }
+    @media (max-width: 800px) { .get-grid { grid-template-columns: 1fr; } }
+    .get-col h3 { font-size: 16px; font-weight: 900; font-family: 'Syne', sans-serif; color: var(--dark); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+    .get-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .get-col ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--gray-600); }
+
+    .bonus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+    @media (max-width: 900px) { .bonus-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .bonus-grid { grid-template-columns: 1fr; } }
+    .bonus-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 20px; padding: 22px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .bonus-card:hover { border-color: rgba(37,99,235,.35); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,99,235,.09); }
+    .bonus-badge { display: inline-block; background: var(--primary); color: #fff; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .bonus-card h3 { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 900; color: var(--dark); }
+    .bonus-card p { font-size: 12px; color: var(--gray-500); line-height: 1.6; flex: 1; }
+    .bonus-img { aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: linear-gradient(135deg, #dbeafe, #eff6ff); }
+    .bonus-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .value-cta {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 20px; padding: 32px;
+      max-width: 560px; margin: 0 auto;
+    }
+    .value-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 7px 0; }
+    .value-row span:first-child { color: var(--gray-600); }
+    .value-row span:last-child { font-weight: 700; color: var(--gray-400); text-decoration: line-through; }
+    .value-total { display: flex; justify-content: space-between; align-items: center; padding: 14px 0 0; border-top: 1px solid var(--gray-200); margin-top: 8px; }
+    .value-total span:first-child { font-weight: 900; font-size: 15px; }
+    .value-total span:last-child { font-weight: 900; font-size: 26px; color: var(--primary); }
+    .value-note { font-size: 11px; color: var(--gray-400); text-align: center; margin: 8px 0 20px; }
+
+    /* ── COURSE ── */
+    #course { background: #fff; }
+    .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; max-width: 960px; margin: 0 auto; }
+    @media (max-width: 800px) { .course-grid { grid-template-columns: 1fr; } }
+    .module-list { display: flex; flex-direction: column; gap: 10px; }
+    .module-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 14px; padding: 14px 16px;
+    }
+    .module-num { font-size: 10px; font-weight: 900; background: var(--primary); color: #fff; padding: 3px 8px; border-radius: 6px; flex-shrink: 0; margin-top: 1px; }
+    .module-item h4 { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+    .module-item p { font-size: 11px; color: var(--gray-500); line-height: 1.5; }
+
+    .course-cta-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 20px; padding: 28px;
+      display: flex; flex-direction: column; gap: 16px; position: sticky; top: 90px;
+    }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--gray-50); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .review-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .review-grid { grid-template-columns: 1fr; } }
+    .review-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 20px; padding: 22px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .review-card:hover { border-color: rgba(37,99,235,.25); box-shadow: 0 4px 16px rgba(37,99,235,.06); }
+    .stars { display: flex; gap: 3px; }
+    .stars svg { fill: var(--green); color: var(--green); }
+    .review-text { font-size: 13px; color: var(--gray-600); line-height: 1.65; flex: 1; }
+    .review-author { display: flex; align-items: center; gap: 10px; padding-top: 12px; border-top: 1px solid var(--gray-100); }
+    .avatar {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900;
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .author-name { font-size: 13px; font-weight: 700; color: var(--dark); }
+    .author-role { font-size: 11px; color: var(--gray-400); }
+
+    /* ── FAQ ── */
+    #faq { background: #fff; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      transition: border-color .2s;
+    }
+    .faq-item:hover { border-color: rgba(37,99,235,.25); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; gap: 14px;
+      background: none; border: none; cursor: pointer;
+      text-align: left; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--dark); transition: color .15s;
+    }
+    .faq-q:hover { color: var(--primary); }
+    .faq-q svg { flex-shrink: 0; transition: transform .25s; color: var(--gray-400); }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s;
+      font-size: 14px; color: var(--gray-500); line-height: 1.7; padding: 0 22px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+
+    /* ── CTA BANNER ── */
+    #cta {
+      background: var(--primary);
+      padding: 88px 24px;
+      text-align: center;
+    }
+    #cta .badge { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.3); color: #fff; }
+    #cta h2 { color: #fff; }
+    #cta .section-sub { color: rgba(255,255,255,.8); max-width: 620px; }
+    #cta .section-sub s { opacity: .55; }
+    .countdown {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin: 32px 0 36px;
+    }
+    .cd-block { display: flex; flex-direction: column; align-items: center; }
+    .cd-num {
+      width: 72px; height: 72px; border-radius: 14px;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 900; color: #fff;
+    }
+    .cd-label { font-size: 9px; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: rgba(255,255,255,.55); margin-top: 6px; }
+    .cd-sep { font-size: 24px; font-weight: 900; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+    #cta-note { font-size: 13px; color: rgba(255,255,255,.6); margin-top: 20px; }
+
+    /* ── CASE STUDIES ── */
+    #cases { background: #fff; }
+    .case-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
+    .case-tab {
+      padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 700;
+      border: none; cursor: pointer; transition: background .2s, color .2s;
+      background: var(--gray-100); color: var(--gray-500);
+    }
+    .case-tab.active { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,.3); }
+    .case-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 24px;
+      padding: 36px; display: grid; grid-template-columns: 2fr 3fr; gap: 32px;
+      max-width: 900px; margin: 0 auto;
+    }
+    @media (max-width: 700px) { .case-card { grid-template-columns: 1fr; } }
+    .case-person { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .case-avatar {
+      width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900;
+    }
+    .case-name { font-size: 18px; font-weight: 900; color: var(--dark); }
+    .case-meta { font-size: 13px; color: var(--gray-500); }
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .ba-box { border-radius: 14px; padding: 14px; text-align: center; }
+    .ba-box.before { background: #fef2f2; }
+    .ba-box.after { background: #f0fdf4; }
+    .ba-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+    .ba-box.before .ba-label { color: #f87171; }
+    .ba-box.after .ba-label { color: #4ade80; }
+    .ba-val { font-size: 22px; font-weight: 900; }
+    .ba-box.before .ba-val { color: var(--red-500); }
+    .ba-box.after .ba-val { color: var(--green); }
+    .timeline-box { background: var(--primary-light); border: 1px solid var(--primary-border); border-radius: 14px; padding: 12px; text-align: center; }
+    .timeline-box .tl-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin-bottom: 4px; }
+    .timeline-box .tl-val { font-size: 20px; font-weight: 900; color: var(--primary); }
+    .case-right { display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+    .case-stars { display: flex; gap: 3px; }
+    .case-quote { font-size: 15px; color: var(--gray-700); line-height: 1.7; font-style: italic; border-left: 4px solid var(--primary); padding-left: 18px; }
+    .case-highlights { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .case-highlights li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--dark); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--gray-200); background: var(--gray-50); }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 36px 0; }
+    .social-links { display: flex; gap: 20px; }
+    .social-links a { color: var(--gray-400); text-decoration: none; transition: color .15s; }
+    .social-links a:hover { color: var(--primary); }
+    .footer-nav { display: flex; gap: 20px; }
+    .footer-nav a { font-size: 13px; color: var(--gray-400); text-decoration: none; transition: color .15s; }
+    .footer-nav a:hover { color: var(--primary); }
+    .footer-disclaimer {
+      background: #000; padding: 32px 24px;
+    }
+    .disclaimer-inner { max-width: 860px; margin: 0 auto; }
+    .disclaimer-name { font-family: 'Syne', sans-serif; font-weight: 900; font-size: 17px; color: #fff; letter-spacing: .05em; margin-bottom: 2px; }
+    .disclaimer-copy { font-size: 10px; color: var(--gray-400); letter-spacing: .08em; margin-bottom: 20px; }
+    .disclaimer-text { font-size: 11px; color: #9ca3af; line-height: 1.7; text-align: center; margin-bottom: 12px; }
+    .disclaimer-text strong { color: #fff; font-size: 11px; }
+    .footer-bottom { border-top: 1px solid #374151; padding-top: 14px; margin-top: 4px; display: flex; align-items: center; gap: 14px; }
+    .footer-bottom span, .footer-bottom a { font-size: 11px; color: #6b7280; text-decoration: none; }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ── FLOATING WHATSAPP ── */
+    #wa-btn {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 999;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--wa-green);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 18px;
+      text-decoration: none;
+      font-size: 14px; font-weight: 700;
+      box-shadow: 0 8px 32px rgba(37,211,102,.45);
+      transition: transform .2s, box-shadow .2s;
+      overflow: hidden;
+      max-width: 56px;
+    }
+    #wa-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 12px 40px rgba(37,211,102,.55);
+      max-width: 220px;
+    }
+    #wa-btn svg { flex-shrink: 0; width: 24px; height: 24px; }
+    #wa-label { white-space: nowrap; overflow: hidden; max-width: 0; transition: max-width .3s ease; opacity: 0; transition: max-width .3s ease, opacity .3s ease; }
+    #wa-btn:hover #wa-label { max-width: 160px; opacity: 1; }
+
+    /* ── SOCIAL PROOF POPUP ── */
+    #sp-popup {
+      position: fixed;
+      bottom: 24px; left: 24px;
+      z-index: 998;
+      display: flex; align-items: center; gap: 12px;
+      background: #fff;
+      border: 1px solid var(--gray-100);
+      border-radius: 18px;
+      padding: 12px 16px;
+      max-width: 300px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .4s, transform .4s;
+      pointer-events: none;
+    }
+    #sp-popup.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .sp-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; flex-shrink: 0; }
+    .sp-name { font-size: 12px; font-weight: 700; color: var(--dark); }
+    .sp-name span { font-weight: 400; color: var(--gray-500); }
+    .sp-action { font-size: 11px; color: var(--gray-500); }
+    .sp-time { font-size: 10px; color: var(--primary); font-weight: 600; margin-top: 2px; }
+    .sp-close { margin-left: auto; background: none; border: none; cursor: pointer; color: var(--gray-300); font-size: 14px; align-self: flex-start; padding: 0 0 0 8px; }
+
+    /* ── UTILS ── */
+    .primary-color { color: var(--primary); }
+    .check-icon { color: var(--primary); display: inline-flex; flex-shrink: 0; margin-top: 2px; }
+    .divider { border: none; border-top: 1px solid var(--gray-200); }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp .6s ease forwards; }
+  </style>
+</head>
+<body>
+
+<!-- ── SOCIAL PROOF POPUP ── -->
+<div id="sp-popup">
+  <div class="sp-avatar" id="sp-av"></div>
+  <div style="flex:1;min-width:0">
+    <div class="sp-name" id="sp-name-el"></div>
+    <div class="sp-action" id="sp-action-el"></div>
+    <div class="sp-time" id="sp-time-el"></div>
+  </div>
+  <button class="sp-close" onclick="document.getElementById('sp-popup').classList.remove('show')">✕</button>
+</div>
+
+<!-- ── FLOATING WHATSAPP ── -->
+<a id="wa-btn" href="https://wa.me/919999999999?text=Hi%20Venkat!%20I%20want%20to%20learn%20more%20about%20starting%20an%20AI%20business." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.557 4.117 1.532 5.849L.047 23.707a.5.5 0 0 0 .603.634l6.008-1.576A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.916 0-3.71-.507-5.26-1.393l-.357-.21-3.704.972.986-3.607-.23-.372A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span id="wa-label">Chat with Venkat</span>
+</a>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo font-display">VENKAT<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#software">Software</a>
+      <a href="#course">Course</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="https://www.gohighlevel.com/" target="_blank" class="btn btn-primary btn-sm">Get Started</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-grid">
+    <div class="fade-up">
+      <div class="hero-tag">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M13 2L4.09 12.97 11 13l-2 9L20 9h-7L13 2z"/></svg>
+        Launch Your Software or AI Agency in 30 Days
+      </div>
+      <h1>Start an <span class="accent">AI Business</span> in 2026.</h1>
+      <p class="hero-desc">
+        How I built a <strong>7-figure software business</strong> using HighLevel — and how you can launch your own AI agency in <strong>30 days</strong>, even as a complete beginner.
+      </p>
+      <ul class="check-list">
+        <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Get my complete AI Agency Blueprint (normally $799) — FREE</li>
+        <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Launch your own white-label software business</li>
+        <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Start making money in 30 days or less</li>
+      </ul>
+      <a href="https://www.gohighlevel.com/" target="_blank" class="btn btn-primary btn-lg">Get 30-Day Free Trial</a>
+      <p class="hero-note">No credit card required. Free training included when you sign up through Venkat's link.</p>
+    </div>
+    <div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/Dp2TSSisAZM?rel=0&modestbranding=1" title="Start an AI Business in 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO IS THIS FOR ── -->
+<section id="for">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Who Is This <span class="accent">For?</span></h2>
+      <p class="section-sub" style="margin-top:8px">This is for you if any of these sound familiar…</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="icon-card"><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><div><h3>You Want to Start a Business</h3><p>But don't know where to begin or what to sell.</p></div></div>
+      <div class="icon-card"><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h3>You're Tired of Trading Time for Money</h3><p>You want recurring revenue that works while you sleep.</p></div></div>
+      <div class="icon-card"><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><h3>You Have No Tech Skills</h3><p>No coding, no design, no prior experience needed.</p></div></div>
+      <div class="icon-card"><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><h3>You've Tried Other Courses Before</h3><p>And got nothing but theory. You need a real system.</p></div></div>
+      <div class="icon-card"><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><h3>You Want to Help Small Businesses</h3><p>Grow their revenue using digital marketing and AI tools.</p></div></div>
+      <div class="icon-card"><div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div><div><h3>You're Ready to Take Action</h3><p>You don't need more motivation — you need the right blueprint.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container-sm">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="badge">About Venkat</div>
+        <h2>Who is <span class="accent">Venkat?</span></h2>
+        <p>I started my digital marketing agency when I was young, broke, and looking for a way out. No connections, no rich parents — just a laptop and an obsession with building something real.</p>
+        <p>Today, that agency is a <strong>7-figure powerhouse</strong>. We've been recognized by the <strong>Inc 5000 Fastest-Growing Companies</strong> three years in a row, and earned the <strong>Gold HighLevel SaaS Award</strong>.</p>
+        <p>My mission now is to help ambitious people skip years of trial and error. I help small to medium businesses grow with online marketing, and I teach entrepreneurs how to launch profitable AI and software agencies.</p>
+        <ul class="about-points">
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> 10+ years of real agency experience</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Manages 300+ active client accounts</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Teaches beginner-friendly AI business launch</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Co-Founder of a 7-figure digital marketing company</li>
+        </ul>
+      </div>
+      <div class="about-photo">
+        <div class="about-photo-placeholder">V</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT IS HIGHLEVEL ── -->
+<section id="highlevel">
+  <div class="container-sm">
+    <div class="section-header text-center">
+      <div class="badge">The Platform</div>
+      <h2>What is <span class="accent">HighLevel?</span></h2>
+      <p class="section-sub">See it in 2 minutes — Inside Tour</p>
+    </div>
+    <div class="video-wrap" style="margin-bottom:40px">
+      <iframe src="https://www.youtube.com/embed/AyLFBsCNSFI?rel=0&modestbranding=1" title="What is HighLevel?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><h4>All-in-One CRM</h4><p>Manage every client, lead, and deal from a single dashboard.</p></div></div>
+      <div class="feature-card"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><h4>Funnels &amp; Websites</h4><p>Build high-converting sales funnels with drag-and-drop simplicity.</p></div></div>
+      <div class="feature-card"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h4>Email &amp; SMS Marketing</h4><p>Send automated follow-ups across email, SMS, and voicemail.</p></div></div>
+      <div class="feature-card"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><h4>Appointment Booking</h4><p>Automated booking, reminders — your calendar fills itself.</p></div></div>
+      <div class="feature-card"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><h4>Reputation Management</h4><p>Request and manage Google reviews automatically at scale.</p></div></div>
+      <div class="feature-card"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h4>White-Label &amp; Resell</h4><p>Brand it as your own software and charge clients monthly.</p></div></div>
+    </div>
+    <div class="text-center" style="margin-top:16px">
+      <a href="https://www.gohighlevel.com/" target="_blank" class="btn btn-primary btn-lg">Get 30-Day Free Trial</a>
+      <p style="font-size:12px;color:var(--gray-400);margin-top:10px">Free training included when you sign up through Venkat's link.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOFTWARE TABLE ── -->
+<section id="software">
+  <div class="container-sm">
+    <div class="section-header text-center">
+      <div class="badge">The Software</div>
+      <h2>Replace <span class="accent">7+ Tools</span> With One</h2>
+      <p class="section-sub">HighLevel is the all-in-one platform Venkat uses to run his entire 7-figure agency — and you can white-label it as your own software business.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Replaces</th>
+            <th>Other Tools</th>
+            <th>⚡ HighLevel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CRM &amp; Pipeline Management</td><td>Salesforce / HubSpot</td><td>$99 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Unlimited Sales Funnels</td><td>ClickFunnels</td><td>$297 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Website Builder</td><td>Wix / WordPress</td><td>$29 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Surveys &amp; Forms</td><td>Typeform / JotForm</td><td>$49 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Email Marketing</td><td>Mailchimp / ActiveCampaign</td><td>$99 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>2-Way SMS Marketing</td><td>Twilio / SlickText</td><td>$99 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Booking &amp; Appointments</td><td>Calendly</td><td>$29 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Workflow Automations</td><td>Zapier / Make</td><td>$169 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Courses / Products</td><td>Kajabi / Teachable</td><td>$99 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>Reputation Management</td><td>Birdeye / Yext</td><td>$159 / Mo</td><td class="hl-check"><span>✔</span></td></tr>
+          <tr><td>White-Label Mobile App</td><td>Unique to HighLevel</td><td>—</td><td class="hl-check"><span>✔</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Overall Price</td>
+            <td>$1,612 / Month</td>
+            <td><span class="hl-price">$97 / Month</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="text-center" style="margin-top:36px">
+      <a href="https://www.gohighlevel.com/" target="_blank" class="btn btn-primary btn-lg">Try HighLevel Free — 30 Days</a>
+      <p style="font-size:12px;color:var(--gray-400);margin-top:10px">No credit card required. Free training included through Venkat's link.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU GET ── -->
+<section id="get">
+  <div class="container-sm">
+    <div class="section-header text-center">
+      <div class="badge">Free With Your Trial</div>
+      <h2>Here's What <span class="accent">You Get</span></h2>
+      <p class="section-sub">When you start your HighLevel trial through Venkat's link, you get his complete AI Agency Blueprint — normally <s>$799</s> <span style="color:var(--primary);font-weight:700">100% FREE.</span></p>
+    </div>
+    <div class="get-grid">
+      <div class="get-col">
+        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Here's what Venkat will cover:</h3>
+        <ul>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> #1 Business Setup: AI &amp; Quick Wins</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> #2 Agency Account Setup: White Label and SaaS</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> #3 Launch &amp; Scale Your Own Software (SaaS)</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> #4 Launch &amp; Scale Your AI Agency (SwaS)</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> #5 How to Get Clients: Powered by AI</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> #6 Steps to Build a Semi-Passive Income Business</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> 60+ Videos &amp; Hours of Step-by-Step Content</li>
+        </ul>
+      </div>
+      <div class="get-col">
+        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Additional Bonuses Included:</h3>
+        <ul>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Access to 1-on-1 Kickoff Call with Venkat's Team</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Access to Live Bootcamp (Real-Time Training)</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Access to Live Sales Calls &amp; Client Onboarding</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> How to Clone Yourself with AI (Venkat's New Strategy)</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Pre-Built Snapshots &amp; Done-For-You Funnels</li>
+          <li><span class="check-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Private Community of Students &amp; Agency Owners</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card"><span class="bonus-badge">FREE BONUS #1</span><h3>SaaS &amp; SwaS Playbook</h3><p>The exact playbook Venkat uses to run a software + services agency. White-label HighLevel and sell it as your own product.</p><div class="bonus-img" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)"></div></div>
+      <div class="bonus-card"><span class="bonus-badge">FREE BONUS #2</span><h3>Clone Yourself with AI Videos</h3><p>Venkat's personal strategy for using AI to create content, build authority, and grow your agency on YouTube without a camera crew.</p><div class="bonus-img" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)"></div></div>
+      <div class="bonus-card"><span class="bonus-badge">FREE BONUS #3</span><h3>Live Bootcamp + Snapshots &amp; Funnels</h3><p>Hands-on live training sessions plus pre-built HighLevel snapshots and funnel templates you can deploy for clients instantly.</p><div class="bonus-img" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)"></div></div>
+    </div>
+    <div class="value-cta">
+      <p style="font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:10px">Total Value</p>
+      <div class="value-row"><span>AI Agency Blueprint Course</span><span>$499</span></div>
+      <div class="value-row"><span>1-on-1 Kickoff Call</span><span>$150</span></div>
+      <div class="value-row"><span>Live Bootcamp Access</span><span>$299</span></div>
+      <div class="value-row"><span>Done-For-You Snapshots &amp; Funnels</span><span>$199</span></div>
+      <div class="value-row"><span>Clone Yourself with AI Training</span><span>$149</span></div>
+      <div class="value-row"><span>Private Community Access</span><span>$99</span></div>
+      <div class="value-total"><span>Your Price Today</span><span>FREE</span></div>
+      <p class="value-note">When you start your 30-day HighLevel trial through Venkat's link</p>
+      <a href="https://www.gohighlevel.com/" target="_blank" class="btn btn-primary btn-lg btn-full">Claim Free Access Now →</a>
+      <p style="font-size:11px;color:var(--gray-400);text-align:center">No credit card required. Start Free. Cancel Anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="badge">Student Results</div>
+      <h2>What Students Say About <span class="accent">Venkat</span></h2>
+      <p class="section-sub">Real people. Real results. No actors, no incentivized reviews.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card"><div class="stars"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg></div><p class="review-text">"I had zero marketing background. Within 45 days of following Venkat's blueprint I signed my first 3 clients. The step-by-step structure removed all the guesswork."</p><div class="review-author"><div class="avatar" style="background:#2563eb">AM</div><div><div class="author-name">Arjun M.</div><div class="author-role">Agency Owner, Hyderabad</div></div></div></div>
+      <div class="review-card"><div class="stars"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg></div><p class="review-text">"I was skeptical at first but the results speak for themselves. The HighLevel setup alone saved me from building a complicated tech stack. Highly recommend."</p><div class="review-author"><div class="avatar" style="background:#7c3aed">RT</div><div><div class="author-name">Rahul T.</div><div class="author-role">Former IT professional</div></div></div></div>
+      <div class="review-card"><div class="stars"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg></div><p class="review-text">"I've taken multiple courses. Venkat's is the only one where I immediately knew what to do the next morning. Clear, direct, and built by someone who is actively doing it."</p><div class="review-author"><div class="avatar" style="background:#059669">SV</div><div><div class="author-name">Suresh V.</div><div class="author-role">SaaS Entrepreneur</div></div></div></div>
+      <div class="review-card"><div class="stars"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg></div><p class="review-text">"Venkat's training is the most actionable content I've consumed in years. No fluff, just the exact system that works. I crossed $5k/month in my third month."</p><div class="review-author"><div class="avatar" style="background:#db2777">PS</div><div><div class="author-name">Priya S.</div><div class="author-role">Freelancer turned Agency CEO</div></div></div></div>
+      <div class="review-card"><div class="stars"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg></div><p class="review-text">"The community and templates alone are worth it. But having Venkat's strategy as a roadmap made the difference between spinning my wheels and actually closing deals."</p><div class="review-author"><div class="avatar" style="background:#d97706">MK</div><div><div class="author-name">Meena K.</div><div class="author-role">Digital Marketer</div></div></div></div>
+      <div class="review-card"><div class="stars"><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg><svg width="14" height="14" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#16a34a"/></svg></div><p class="review-text">"Started part-time while managing my family. The done-for-you templates meant I didn't have to figure everything out myself. $3k in recurring revenue by month two."</p><div class="review-author"><div class="avatar" style="background:#0891b2">DR</div><div><div class="author-name">Divya R.</div><div class="author-role">Mom &amp; Business Owner</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="container-xs">
+    <div class="section-header text-center">
+      <div class="badge">FAQ</div>
+      <h2>Questions Venkat Gets Asked <span class="accent">Every Day</span></h2>
+      <p class="section-sub">No sugarcoating. Here are honest answers to the most common questions.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need any prior experience to start?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Absolutely not. The entire system is built for beginners. Venkat started from zero — broke, no connections, no experience — and built a 7-figure agency. The blueprint walks you through every step from scratch.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What exactly is HighLevel and why do I need it?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">HighLevel is an all-in-one marketing platform that lets you build a fully functioning SaaS or agency business under your own brand. Venkat's team manages 300+ client sub-accounts inside it. You'll use it to deliver marketing services and software to clients without writing a single line of code.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is the training actually free?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Venkat receives a commission when you start a HighLevel trial through his partner link. That commission covers the cost of the training, so you pay $0. You only pay HighLevel's normal subscription fee to use their platform.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does it take to launch my agency?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">The blueprint is designed to get your agency live in 30 days. Most students have their first client-ready setup complete within the first two weeks.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will this work in my country?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Yes. HighLevel and digital marketing services work globally. Venkat has students running profitable agencies across North America, Europe, Southeast Asia, and beyond.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What do I get inside the training?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Step-by-step training videos, done-for-you agency templates, pre-built automation workflows, a private community of students, and direct access to Venkat's playbook for acquiring and retaining clients.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ── -->
+<section id="cta">
+  <div class="container-xs">
+    <div class="badge">Limited Time Offer</div>
+    <h2>Get My Complete AI Agency Training For Free</h2>
+    <p class="section-sub" style="margin-top:14px">This is the exact system I use to scale. Normally valued at <s>$799</s>, you get it <strong style="color:#fff">100% FREE</strong> when you start a HighLevel trial through my partner link.</p>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:28px">This offer expires in:</p>
+    <div class="countdown">
+      <div class="cd-block"><div class="cd-num" id="cd-days">03</div><div class="cd-label">Days</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><div class="cd-num" id="cd-hours">23</div><div class="cd-label">Hours</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><div class="cd-num" id="cd-mins">59</div><div class="cd-label">Mins</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><div class="cd-num" id="cd-secs">59</div><div class="cd-label">Secs</div></div>
+    </div>
+    <a href="https://www.gohighlevel.com/" target="_blank" class="btn btn-white btn-xl btn-full">Claim Your Free Training Now</a>
+    <p id="cta-note">Step-by-step videos. Done-for-you templates. Private community access.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="#" class="nav-logo font-display">VENKAT<span>.</span></a>
+      <div class="social-links">
+        <a href="#" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+      <div class="footer-nav">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <div class="disclaimer-inner">
+      <div class="disclaimer-name">VENKAT</div>
+      <div class="disclaimer-copy">VENKAT COPYRIGHT MEDIA GROUP 2026</div>
+      <p class="disclaimer-text"><strong>Disclaimer: </strong>This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc. This site is also not a part of the Google™ website or Alphabet Inc. GOOGLE™ is a trademark of ALPHABET Inc.</p>
+      <p class="disclaimer-text"><strong>Earnings Disclaimer: </strong>The results stated on this page are Venkat's personal results and the results of his students. Please understand these results are not typical. The average person who purchases any "how-to" information gets little to no results. Your results will vary and depend on many factors including but not limited to your background, experience, and work ethic. All business entails risk as well as massive and consistent effort and action.</p>
+      <p class="disclaimer-text"><strong>HighLevel Affiliate Disclosure: </strong>Venkat is an independent HighLevel Affiliate, not an employee. He receives referral payments from HighLevel. The opinions expressed here are his own and are not official statements of HighLevel or its parent company, LLC.</p>
+      <div class="footer-bottom">
+        <span>© 2026 Venkat. All Rights Reserved.</span>
+        <span style="color:#4b5563">|</span>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── FAQ TOGGLE ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── COUNTDOWN TIMER ──
+  (function() {
+    const target = new Date();
+    target.setDate(target.getDate() + 3);
+    target.setHours(23, 59, 59, 0);
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function update() {
+      const diff = target.getTime() - Date.now();
+      if (diff <= 0) { document.getElementById('cd-days').textContent = '00'; document.getElementById('cd-hours').textContent = '00'; document.getElementById('cd-mins').textContent = '00'; document.getElementById('cd-secs').textContent = '00'; return; }
+      document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 864e5));
+      document.getElementById('cd-hours').textContent = pad(Math.floor(diff / 36e5) % 24);
+      document.getElementById('cd-mins').textContent  = pad(Math.floor(diff / 6e4) % 60);
+      document.getElementById('cd-secs').textContent  = pad(Math.floor(diff / 1e3) % 60);
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+
+  // ── SOCIAL PROOF POPUP ──
+  const entries = [
+    { av: 'MT', name: 'Marcus T.', loc: 'Atlanta, GA', action: 'just started his free trial', time: '2 min ago' },
+    { av: 'PS', name: 'Priya S.',  loc: 'Dallas, TX',  action: 'signed up through Venkat\'s link', time: '5 min ago' },
+    { av: 'JR', name: 'Jake R.',   loc: 'Phoenix, AZ', action: 'claimed the free training', time: '9 min ago' },
+    { av: 'LM', name: 'Leila M.', loc: 'Chicago, IL',  action: 'just joined the community', time: '12 min ago' },
+    { av: 'DW', name: 'Devon W.', loc: 'Houston, TX',  action: 'started his 30-day trial', time: '18 min ago' },
+    { av: 'SK', name: 'Sophia K.', loc: 'Miami, FL',   action: 'claimed the bonus bundle', time: '21 min ago' },
+  ];
+  let idx = 0;
+  const popup = document.getElementById('sp-popup');
+  function showEntry(i) {
+    const e = entries[i];
+    document.getElementById('sp-av').textContent = e.av;
+    document.getElementById('sp-name-el').innerHTML = e.name + ' <span>from ' + e.loc + '</span>';
+    document.getElementById('sp-action-el').textContent = e.action;
+    document.getElementById('sp-time-el').textContent = '⏱ ' + e.time;
+    popup.classList.add('show');
+    setTimeout(() => popup.classList.remove('show'), 4500);
+  }
+  setTimeout(() => {
+    showEntry(0);
+    setInterval(() => { idx = (idx + 1) % entries.length; setTimeout(() => showEntry(idx), 1500); }, 7000);
+  }, 3000);
+</script>
+</body>
+</html>
